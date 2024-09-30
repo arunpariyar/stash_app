@@ -7,5 +7,5 @@ const index_1 = __importDefault(require("./index"));
 //---- Configurations ----
 const config_1 = __importDefault(require("./config/config"));
 index_1.default.listen(config_1.default.PORT, () => {
-    console.log('Server running at PORT: ', config_1.default.PORT);
+    console.log(`Server running at  ${config_1.default.PORT}`);
 });

@@ -12,12 +12,14 @@ import transactionsRouter from './routes/transactionsRoutes';
 const server: Express = express();
 
 //CORS CONFIGURATION
-// const corsConfig = SERVER.DEVELOPMENT ? { origin: [] } : { origin: [] };
+const corsConfig = {
+  origin: 'http://localhost:5173',
+};
 
 //using middlewares
 server.use(morgan('common'));
 server.use(express.json());
-server.use(cors());
+server.use(cors(corsConfig));
 
 // this is just to understand middleware
 server.use((req: Request, res: Response, next: NextFunction) => {

@@ -4,5 +4,5 @@ import server from './index';
 import CONFIG from './config/config';
 
 server.listen(CONFIG.PORT, () => {
-  console.log('Server running at PORT: ', CONFIG.PORT);
+  console.log(`Server running at  ${CONFIG.PORT}`);
 });
