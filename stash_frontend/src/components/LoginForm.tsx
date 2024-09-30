@@ -1,23 +1,41 @@
-import { ChangeEvent, SyntheticEvent, useEffect, useState } from "react";
+import { ChangeEvent, SyntheticEvent, useState } from "react";
 import "./LoginForm.css";
 
-export default function LoginForm() {
+async function signin(
+  url: string,
+  formData: { email: string; password: string }
+) {
+  try {
+    return await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default function LoginForm({ setUser }) {
+  const url = "http://localhost:3000/api/users/login";
+
   const [form, setForm] = useState({
-    email: "",
-    password: "",
+    email: "jadehayden@mail.com",
+    password: "abc123",
   });
 
   async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
-    try {
-      const token = await fetch("http://localhost:3000/api/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
 
-      console.log(token);
-    } catch (error) {}
+    const data = await signin(url, form).then((response) => response?.json());
+
+    if (!data.error) {
+      setUser((prevState: any) => ({
+        ...prevState,
+        isLoggedIn: true,
+        token: data.token,
+      }));
+    }
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {

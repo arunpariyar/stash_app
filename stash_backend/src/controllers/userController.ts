@@ -66,6 +66,7 @@ const signup = async (req: Request, res: Response) => {
 const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
+
     //check to make sure that email and password is provided
     if (!email || !password) {
       return res.status(400).json({
@@ -79,6 +80,7 @@ const login = async (req: Request, res: Response) => {
         email: email,
       },
     });
+
     //checking if there is no user and the password doesnt match at the sametime
     if (!user || !(await utility.validatePassword(password, user.password))) {
       return res.status(401).json({

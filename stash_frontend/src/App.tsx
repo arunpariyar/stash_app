@@ -3,16 +3,16 @@ import "./App.css";
 import LoginForm from "./components/LoginForm";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({ isLoggedIn: false, token: "" });
 
-  if (isLoggedIn) {
-    return <>you are logged in </>;
+  if (user.isLoggedIn) {
+    return <> Token Received ! </>;
   }
 
   return (
     <>
       <div className="login-container">
-        <LoginForm></LoginForm>
+        <LoginForm setUser={setUser}></LoginForm>
       </div>
     </>
   );

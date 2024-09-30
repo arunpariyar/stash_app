@@ -13,11 +13,13 @@ const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const transactionsRoutes_1 = __importDefault(require("./routes/transactionsRoutes"));
 const server = (0, express_1.default)();
 //CORS CONFIGURATION
-// const corsConfig = SERVER.DEVELOPMENT ? { origin: [] } : { origin: [] };
+const corsConfig = {
+    origin: 'http://localhost:5173',
+};
 //using middlewares
 server.use((0, morgan_1.default)('common'));
 server.use(express_1.default.json());
-server.use((0, cors_1.default)());
+server.use((0, cors_1.default)(corsConfig));
 // this is just to understand middleware
 server.use((req, res, next) => {
     // console.log(req.headers);
