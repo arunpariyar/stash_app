@@ -1,25 +1,46 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 import "./LoginForm.css";
+import { UserInfo } from "../types/types";
 
-async function signin(
+interface FormData {
+  email: string;
+  password: string;
+}
+
+interface LoginRequestResponse {
+  error: boolean;
+  token: string;
+}
+
+interface LoginFormProps {
+  setUser: (user: UserInfo) => void;
+}
+
+async function LoginRequest(
   url: string,
-  formData: { email: string; password: string }
-) {
+  formData: FormData
+): Promise<LoginRequestResponse> {
   try {
-    return await fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    return await response.json();
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ setUser }: LoginFormProps) {
   const url = "http://localhost:3000/api/users/login";
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormData>({
     email: "jadehayden@mail.com",
     password: "abc123",
   });
@@ -27,19 +48,19 @@ export default function LoginForm({ setUser }) {
   async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const data = await signin(url, form).then((response) => response?.json());
+    const data = await LoginRequest(url, form);
+
+    console.log(data);
 
     if (!data.error) {
-      setUser((prevState: any) => ({
-        ...prevState,
+      setUser({
         isLoggedIn: true,
         token: data.token,
-      }));
+      });
     }
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    e.preventDefault();
     const { name, value } = e.target;
     setForm((prevState) => ({ ...prevState, [name]: value }));
   }
