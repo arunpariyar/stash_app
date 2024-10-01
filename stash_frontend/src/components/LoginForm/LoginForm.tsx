@@ -1,6 +1,7 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 import "./LoginForm.css";
-import { UserInfo } from "../types/types";
+import { UserInfo } from "../../types/types";
+import CONFIG from "../config/config";
 
 interface FormData {
   email: string;
@@ -38,7 +39,7 @@ async function LoginRequest(
 }
 
 export default function LoginForm({ setUser }: LoginFormProps) {
-  const url = "http://localhost:3000/api/users/login";
+  const url = CONFIG.baseUrl + "/users/login";
 
   const [form, setForm] = useState<FormData>({
     email: "jadehayden@mail.com",
