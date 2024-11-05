@@ -1,5 +1,8 @@
+// FIXME i have turned of the code to fetch login from server temporarily for development purpose.
+// TODO  it is important have this fixed later
+
 import "./LoginPage.css";
-import CONFIG from "../config/config";
+// import CONFIG from "../config/config";
 import { Form, redirect } from "react-router-dom";
 
 interface FormData {
@@ -7,51 +10,53 @@ interface FormData {
   password: string;
 }
 
-interface LoginRequestResponse {
-  error: boolean;
-  token: string;
-}
+// interface LoginRequestResponse {
+//   error: boolean;
+//   token: string;
+// }
 
-async function LoginRequest(
-  url: string,
-  formData: FormData
-): Promise<LoginRequestResponse> {
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+// async function LoginRequest(
+//   url: string,
+//   formData: FormData
+// ): Promise<LoginRequestResponse> {
+//   try {
+//     const response = await fetch(url, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(formData),
+//     });
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+//     if (!response.ok) {
+//       throw new Error("Network response was not ok");
+//     }
 
-    return await response.json();
-  } catch (error) {
-    throw error;
-  }
-}
+//     return await response.json();
+//   } catch (error) {
+//     throw error;
+//   }
+// }
 
 export async function action({ request }: { request: Request }) {
   const formData = await request.formData();
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
-  const errors = {};
+
+  // const errors = {};
 
   const loginDetails: FormData = { email, password };
+  console.log(loginDetails);
 
-  const data = await LoginRequest(
-    `${CONFIG.baseUrl}/users/login`,
-    loginDetails
-  );
+  // const data = await LoginRequest(
+  //   `${CONFIG.baseUrl}/users/login`,
+  //   loginDetails
+  // );
 
-  if (!data.error) {
-    return redirect("/dashboard");
-  }
+  // if (!data.error) {
+  return redirect("/dashboard");
+  // }
 
-  alert("username and password dont match");
-  return errors;
+  // alert("username and password dont match");
+  // return errors;
 }
 
 export default function LoginPage() {

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightgrey;
+  background-color: var(--primary-beige-100);
 }
 
 .login-form {

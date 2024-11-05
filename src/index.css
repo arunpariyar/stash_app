@@ -2,4 +2,58 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "PublicSansRegular";
+}
+
+:root {
+  /* primary colors */
+  --primary-beige-500: #9890bb;
+  --primary-beige-100: #f8f4f0;
+  --primary-grey-900: #201f24;
+  --primary-grey-500: #696868;
+  --primary-grey-100: #f2f2f2;
+
+  /* secondary colors */
+  --secondary-green: #277c78;
+  --secondary-yellow: #f2cdac;
+  --secondary-cyan: #82c9d7;
+  --secondary-navy: #626070;
+  --secondary-red: #c94736;
+  --secondary-purple: #826cb0;
+
+  /* other colors  */
+
+  --other-purple: #af81ba;
+  --other-turquoise: #597c7c;
+  --other-brown: #93674f;
+  --other-magenta: #934f6f;
+  --other-blue: #3f82b2;
+  --other-navy-green: #97a0ac;
+  --other-army-green: #7f9161;
+  --other-gold: #cab361;
+  --other-orange: #be6c49;
+
+  --white: #fff;
+
+  /* SPACING */
+  --spacing-500: 40px;
+  --spacing-400: 32px;
+  --spacing-300: 24px;
+  --spacing-250: 20px;
+  --spacing-200: 16px;
+  --spacing-150: 12px;
+  --spacing-100: 8px;
+  --spacing-50: 4px;
+}
+
+@font-face {
+  font-family: "PublicSansItalic";
+  src: url(/fonts/PublicSans-VariableFont.ttf) format("truetype");
+  font-weight: 100 200 300 400 500 600 700 800 900;
+}
+
+@font-face {
+  font-family: "PublicSansRegular";
+  src: url(/fonts/PublicSans-VariableFont.ttf) format("truetype");
+  font-weight: 100 200 300 400 500 600 700 800 900;
 }
