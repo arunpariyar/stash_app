@@ -7,7 +7,7 @@
 
 :root {
   /* primary colors */
-  --primary-beige-500: #9890bb;
+  --primary-beige-500: #98908b;
   --primary-beige-100: #f8f4f0;
   --primary-grey-900: #201f24;
   --primary-grey-500: #696868;
@@ -44,6 +44,19 @@
   --spacing-150: 12px;
   --spacing-100: 8px;
   --spacing-50: 4px;
+
+  /* FONT SIZE */
+  --text-size-preset-1: 32px;
+  --text-size-preset-2: 20px;
+  --text-size-preset-3: 16px;
+  --text-size-preset-4: 14px;
+  --text-size-preset-5: 12px;
+
+  /* Line Height */
+  --line-height-preset-1: 120%;
+  --line-height-preset-2: 120%;
+  --line-height-preset-2: 120%;
+  --line-height-preset-std: 150%;
 }
 
 @font-face {

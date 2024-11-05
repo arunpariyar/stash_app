@@ -1,16 +1,118 @@
-.login-container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--primary-beige-100);
+@media screen and (min-width: 0px) {
+  .auth-media {
+    display: none;
+  }
+
+  .login-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-beige-100);
+  }
+
+  .form-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 40px 25px;
+    border-radius: 5%;
+    width: 90vw;
+  }
+
+  .login-text {
+    font-size: var(--text-size-preset-1);
+    line-height: var(--line-height-preset-1);
+    font-weight: bold;
+  }
+
+  .input-label {
+    font-size: var(--text-size-preset-5);
+    font-weight: bold;
+    color: var(--primary-grey-500);
+    margin-top: 15px;
+  }
+
+  .input-field-default {
+    border-radius: 5px;
+    padding: var(--spacing-150);
+    border-color: var(--primary-beige-500);
+    border-width: 1px;
+  }
+
+  .submit-btn {
+    background-color: var(--primary-grey-900);
+    padding: var(--spacing-200);
+    color: var(--white);
+    font-size: var(--text-size-preset-4);
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 20px 0px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .info-text {
+    font-size: var(--text-size-preset-4);
+    text-align: center;
+  }
+
+  .signup-link {
+    font-size: var(--text-size-preset-4);
+    font-weight: bold;
+  }
 }
 
-.login-form {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-  border-radius: 5%;
+@media screen and (min-width: 500px) {
+  .login-form {
+    width: 80vw;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .login-form {
+    width: 50%;
+  }
+
+  .login-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr 2fr;
+  }
+
+  .header-container {
+    display: none;
+  }
+
+  .auth-media {
+    margin: 15px;
+    height: calc(100vh - 30px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url(/images/finance-illustration.svg);
+    background-repeat: no-repeat;
+  }
+
+  .title {
+    color: var(--white);
+    font-size: var(--text-size-preset-1);
+    line-height: var(--line-height-preset-1);
+    font-weight: bold;
+  }
+  .summary {
+    color: var(--white);
+    margin-top: 15px;
+    font-size: var(--text-size-preset-4);
+    line-height: var(--line-height-preset-std);
+  }
 }
