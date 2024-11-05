@@ -6,6 +6,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
 import { action as formAction } from "./components/LoginPage/LoginPage.tsx";
+import Dashboard from "./pages/Dashboard/Dashboard.tsx";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <>you are now logged in</>,
+    element: <Dashboard />,
   },
 ]);
 

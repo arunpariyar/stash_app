@@ -1,0 +1,19 @@
+.sidebar-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  border-radius: 15px 15px 0px 0px;
+  gap: 5px;
+}
+
+.menu-link {
+  cursor: pointer;
+  border-bottom: 5px solid var(--secondary-green);
+  padding: 15px 40px;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.menu-link:hover {
+  background-color: var(--primary-beige-100);
+  border-bottom: 5px solid var(--secondary-green);
+}

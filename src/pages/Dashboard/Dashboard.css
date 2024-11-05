@@ -1,0 +1,17 @@
+@media screen and (min-width: 0px) {
+  .dashboard-container {
+    min-height: 100vh;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .side-bar {
+    position: fixed;
+    bottom: 0;
+    background-color: var(--primary-grey-900);
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+  }
+}
