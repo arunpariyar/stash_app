@@ -4,6 +4,8 @@
 import "./LoginPage.css";
 // import CONFIG from "../config/config";
 import { Form, redirect } from "react-router-dom";
+import Header from "../Header/Header";
+import logo from "/images/logo-large.svg";
 
 interface FormData {
   email: string;
@@ -62,24 +64,58 @@ export async function action({ request }: { request: Request }) {
 export default function LoginPage() {
   return (
     <div className="login-container">
-      <Form method="post" className="login-form" id="contact-form">
-        <p>Login</p>
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          placeholder="jadehayden@mail.com"
-          defaultValue={"jadehayden@mail.com"}
-        ></input>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="abc123"
-          defaultValue={"abc123"}
-        ></input>
-        <button type="submit">Login</button>
-      </Form>
+      <div className="header-container">
+        <Header></Header>
+      </div>
+      <div className="auth-media-container">
+        <div className="auth-media">
+          <div>
+            <img src={logo} />
+          </div>
+
+          <div className="info">
+            <p className="title">
+              Keep track of your money and save for your future
+            </p>
+            <p className="summary">
+              Personal finance app puts you in control of your spending. Track
+              transactions, set budgets, and add to savings pots easily.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="form-container">
+        <Form method="post" className="login-form" id="contact-form">
+          <p className="login-text">Login</p>
+          <label className="input-label">Email</label>
+          <input
+            className="input-field-default"
+            type="text"
+            name="email"
+            placeholder="jadehayden@mail.com"
+            defaultValue={"jadehayden@mail.com"}
+          ></input>
+          <label className="input-label">Password</label>
+          <input
+            className="input-field-default"
+            type="password"
+            name="password"
+            placeholder="abc123"
+            defaultValue={"abc123"}
+          ></input>
+          <button className="submit-btn" type="submit">
+            Login
+          </button>
+          <div className="info-text">
+            Need to create an account ?{" "}
+            <a href="/" className="signup-link">
+              {" "}
+              Sign Up
+            </a>
+          </div>
+        </Form>
+      </div>
     </div>
   );
 }

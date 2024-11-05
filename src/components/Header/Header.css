@@ -1,0 +1,14 @@
+.container {
+  background-color: var(--primary-grey-900);
+  border-radius: 0px 0px 15px 15px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding: 20px;
+}
+.app-name {
+  font-size: 40px;
+  letter-spacing: 3px;
+  font-weight: 900;
+  color: white;
+}

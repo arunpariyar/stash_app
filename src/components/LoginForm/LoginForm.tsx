@@ -84,6 +84,9 @@ export default function LoginForm({ setUser }: LoginFormProps) {
         onChange={handleChange}
       ></input>
       <button>Login</button>
+      <div>
+        Need to create an account ? <a> Sign Up</a>
+      </div>
     </form>
   );
 }
