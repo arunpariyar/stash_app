@@ -35,6 +35,8 @@ export default function SideBar() {
       {navItems.map((item) => (
         <Link className="menu-link" to={`${item.link}`}>
           <img src={item.icon}></img>
+
+          <p>{item.name}</p>
         </Link>
       ))}
     </div>
