@@ -1,0 +1,26 @@
+@media screen and (min-width: 0px) {
+  .content {
+    padding: 20px;
+  }
+
+  .side-bar {
+    position: fixed;
+    bottom: 0;
+    background-color: var(--primary-grey-900);
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .side-bar {
+    position: relative;
+    width: max-content;
+    border-radius: 0px 10px 10px 0px;
+    margin-right: var(--spacing-500);
+  }
+
+  .dashboard-container {
+    display: flex;
+  }
+}
