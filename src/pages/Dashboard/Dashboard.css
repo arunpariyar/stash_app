@@ -1,8 +1,4 @@
 @media screen and (min-width: 0px) {
-  .dashboard-container {
-    min-height: 100vh;
-  }
-
   .content {
     padding: 20px;
   }
@@ -19,5 +15,12 @@
 @media screen and (min-width: 992px) {
   .side-bar {
     position: relative;
+    width: max-content;
+    border-radius: 0px 10px 10px 0px;
+    margin-right: var(--spacing-500);
+  }
+
+  .dashboard-container {
+    display: flex;
   }
 }
