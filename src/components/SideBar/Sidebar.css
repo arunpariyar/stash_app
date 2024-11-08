@@ -26,23 +26,34 @@
   align-self: center;
 }
 
-.menu-link-text {
-  color: white;
-}
-
 .menu-link:hover {
   background-color: var(--primary-beige-100);
   border-bottom: 5px solid var(--secondary-green);
   color: var(--primary-grey-900);
 }
 
+.menu-link:hover > img {
+  filter: invert(42%) sepia(15%) saturate(1837%) hue-rotate(128deg)
+    brightness(92%) contrast(81%);
+}
+
 @media screen and (min-width: 0px) {
+  .sidebar-container {
+    padding-top: 10px;
+
+    gap: 3px;
+  }
+
   .sidebar-container {
     gap: 5px;
   }
 
   .menu-link {
     padding: 10px 20px;
+  }
+
+  .menu-link-text {
+    display: none;
   }
 }
 
@@ -63,5 +74,8 @@
 
   .menu-link {
     padding: 15px 30px;
+  }
+  .menu-link-text {
+    display: block;
   }
 }
