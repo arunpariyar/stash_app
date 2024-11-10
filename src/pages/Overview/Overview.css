@@ -1,0 +1,16 @@
+.overview-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.page-title {
+  font-size: var(--text-size-preset-1);
+  margin-bottom: var(--spacing-300);
+}
+
+.account-container {
+  display: flex;
+  gap: var(--spacing-300);
+  justify-content: space-between;
+}
