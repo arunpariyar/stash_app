@@ -1,6 +1,5 @@
 import AmountDisplay from "./AmountDisplay/AmountDisplay";
 import "./Overview.css";
-
 import PotsDisplay from "./PotsDisplay/PotsDisplay";
 
 interface AmountInfo {

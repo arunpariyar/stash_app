@@ -1,5 +1,6 @@
 import utils from "../../../helper/utils";
 import "./AmountDisplay.css";
+
 interface AmountDisplayProps {
   title: string;
   amount: number;
