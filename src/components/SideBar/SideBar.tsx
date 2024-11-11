@@ -1,7 +1,7 @@
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
-import logo from "../../../public/images/logo-large.svg";
-import minmizeBtn from "../../../public/images/icon-minimize-menu.svg";
+import logo from "/images/logo-large.svg";
+import minmizeBtn from "/images/icon-minimize-menu.svg";
 
 export default function SideBar() {
   const navItems = [

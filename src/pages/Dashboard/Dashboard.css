@@ -1,8 +1,8 @@
-.dashboard-pages {
-  width: 100%;
-  padding: var(--spacing-300);
-}
 @media screen and (min-width: 0px) {
+  .dashboard-pages {
+    width: 100%;
+    padding: var(--spacing-200);
+  }
   .content {
     padding: 20px;
   }
@@ -19,9 +19,12 @@
 @media screen and (min-width: 992px) {
   .side-bar {
     position: relative;
-
     width: max-content;
     border-radius: 0px 10px 10px 0px;
+  }
+
+  .dashboard-pages {
+    padding: var(--spacing-400);
   }
 
   .dashboard-container {
