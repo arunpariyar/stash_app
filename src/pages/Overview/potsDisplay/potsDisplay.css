@@ -44,6 +44,24 @@
   .summary-amount {
     font-size: var(--text-size-preset-1);
   }
+
+  .pots-breakdown {
+    display: flex;
+    gap: var(--spacing-200);
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .pots-information {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
+  }
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
+  .pots-information {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-300);
+  }
 }

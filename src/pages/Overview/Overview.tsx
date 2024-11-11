@@ -30,7 +30,7 @@ export default function Overview() {
     {
       name: "Gift",
       amount: 40,
-      theme: "yellow",
+      theme: "black",
     },
     {
       name: "Concert Ticket",

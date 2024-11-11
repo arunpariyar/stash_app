@@ -1,0 +1,35 @@
+@media screen and (min-width: 0px) {
+  .pot-container {
+    width: 45%;
+    display: flex;
+  }
+
+  .empty-div {
+    width: 3px;
+    height: 100%;
+    background-color: red;
+    border-radius: 3px;
+  }
+
+  .single-pot {
+    display: flex;
+    gap: var(--spacing-200);
+  }
+
+  .pot-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-100);
+  }
+
+  .pot-name {
+    font-size: var(--text-size-preset-5);
+    color: var(--primary-grey-500);
+    white-space: nowrap;
+  }
+
+  .pot-amount {
+    font-size: var(--text-size-preset-4);
+    font-weight: bold;
+  }
+}
