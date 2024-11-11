@@ -1,7 +1,7 @@
-import AmountDisplay from "./AmountDisplay/AmountDisplay";
-import PotsDisplay from "./PotsDisplay/PotsDisplay";
-
 import "./Overview.css";
+
+import AmountDisplay from "../sharedComponents/AmountDisplay/AmountDisplay";
+import PotsDisplay from "../sharedComponents/PotsDisplay/PotsDisplay";
 
 interface AmountInfo {
   title: string;

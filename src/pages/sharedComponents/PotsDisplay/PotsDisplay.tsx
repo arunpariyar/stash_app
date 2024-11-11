@@ -1,5 +1,5 @@
 import "./PotsDisplay.css";
-import { Pot } from "../Overview";
+import { Pot } from "../../Overview/Overview";
 import { Link } from "react-router-dom";
 import caretRight from "/images/icon-caret-right.svg";
 import potsIcon from "/images/icon-pot.svg";
