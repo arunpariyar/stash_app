@@ -1,4 +1,3 @@
-import { useLocation, useParams } from "react-router-dom";
 import AmountDisplay from "./amountDisplay/AmountDisplay";
 import "./Overview.css";
 interface AmountInfo {
