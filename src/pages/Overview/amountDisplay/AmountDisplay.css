@@ -1,0 +1,23 @@
+.amount-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+  background-color: white;
+  padding: var(--spacing-400);
+  border-radius: 10px;
+  width: 100%;
+}
+
+.amount-title {
+  font-size: var(--text-size-preset-4);
+  color: var(--primary-grey-500);
+}
+
+.amount-number {
+  font-size: var(--text-size-preset-1);
+}
+
+.current-balance {
+  background-color: var(--primary-grey-900);
+  color: var(--white);
+}

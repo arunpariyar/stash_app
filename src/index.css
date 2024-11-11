@@ -5,6 +5,10 @@
   font-family: "PublicSansRegular";
 }
 
+body {
+  background-color: var(--primary-grey-100);
+}
+
 :root {
   /* primary colors */
   --primary-beige-500: #98908b;
