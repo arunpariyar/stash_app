@@ -1,9 +1,17 @@
-import { useLocation, useParams } from "react-router-dom";
-import AmountDisplay from "./amountDisplay/AmountDisplay";
+import AmountDisplay from "./AmountDisplay/AmountDisplay";
 import "./Overview.css";
+
+import PotsDisplay from "./PotsDisplay/PotsDisplay";
+
 interface AmountInfo {
   title: string;
   amount: number;
+}
+
+export interface Pot {
+  name: string;
+  amount: number;
+  theme: string;
 }
 
 export default function Overview() {
@@ -11,6 +19,29 @@ export default function Overview() {
     { title: "Current Balance", amount: 4836 },
     { title: "Income", amount: 3814.25 },
     { title: "Expenses", amount: 1700.5 },
+  ];
+
+  const mockPots: Pot[] = [
+    {
+      name: "Savings",
+      amount: 159,
+      theme: "green",
+    },
+    {
+      name: "Gift",
+      amount: 40,
+      theme: "black",
+    },
+    {
+      name: "Concert Ticket",
+      amount: 110,
+      theme: "purple",
+    },
+    {
+      name: "New Laptop",
+      amount: 100,
+      theme: "brown",
+    },
   ];
   return (
     <div className="overview-container">
@@ -23,6 +54,9 @@ export default function Overview() {
             title={category.title}
           />
         ))}
+      </div>
+      <div>
+        <PotsDisplay pots={mockPots} />
       </div>
     </div>
   );

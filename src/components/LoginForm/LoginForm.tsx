@@ -51,8 +51,6 @@ export default function LoginForm({ setUser }: LoginFormProps) {
 
     const data = await LoginRequest(url, form);
 
-    console.log(data);
-
     if (!data.error) {
       setUser({
         isLoggedIn: true,
