@@ -1,0 +1,49 @@
+@media screen and (min-width: 0) {
+  .pots-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-300);
+    background-color: var(--white);
+    border-radius: 10px;
+    gap: var(--spacing-300);
+  }
+
+  .pots-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pots-title {
+    font-size: var(--text-size-preset-2);
+    font-weight: bold;
+  }
+
+  .pots-link {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    font-size: var(--text-size-preset-4);
+    color: var(--primary-grey-500);
+    text-decoration: none;
+  }
+  .pots-summary {
+    background-color: var(--primary-beige-100);
+    padding: var(--spacing-300);
+    display: flex;
+    gap: var(--spacing-300);
+    border-radius: 10px;
+  }
+
+  .summary-title {
+    font-size: var(--text-size-preset-5);
+    color: var(--primary-grey-500);
+  }
+
+  .summary-amount {
+    font-size: var(--text-size-preset-1);
+  }
+}
+@media screen and (min-width: 576px) {
+}
