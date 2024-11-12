@@ -1,0 +1,42 @@
+.transaction-row-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-200) var(--spacing-100);
+  border-bottom: 1px solid;
+  border-color: var(--primary-grey-100);
+}
+
+.transaction-entity {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+  font-size: var(--text-size-preset-4);
+  font-weight: bold;
+}
+.image-resize {
+  width: 50px;
+  height: auto;
+  border-radius: 50px;
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.transaction-amount {
+  font-size: var(--text-size-preset-4);
+  font-weight: bold;
+  text-align: right;
+}
+
+.transaction-date {
+  font-size: var(--text-size-preset-5);
+}
+
+.transaction-row-container:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}

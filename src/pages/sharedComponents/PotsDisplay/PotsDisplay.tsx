@@ -14,7 +14,11 @@ export default function PotsDisplay({ pots }: PotsDisplayProps) {
 
   return (
     <div className="pots-container">
-      <OverviewHeader title="Pots" link="pots"></OverviewHeader>
+      <OverviewHeader
+        title="Pots"
+        link="pots"
+        linkText="See Details"
+      ></OverviewHeader>
       <div className="pots-information">
         <div className="pots-content">
           <div className="pots-summary">
@@ -29,7 +33,7 @@ export default function PotsDisplay({ pots }: PotsDisplayProps) {
         </div>
         <div className="pots-breakdown">
           {pots.map((pot) => (
-            <PotDisplay pot={pot}></PotDisplay>
+            <PotDisplay key={`${pot.name}-${pot.theme}`} pot={pot}></PotDisplay>
           ))}
         </div>
       </div>
