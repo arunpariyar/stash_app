@@ -1,7 +1,19 @@
-.transactions-overview--container {
-  width: 100%;
-  padding: var(--spacing-300);
-  background-color: var(--white);
-  border-radius: 10px;
-  gap: var(--spacing-300);
+@media screen and (min-width: 0px) {
+  .transactions-overview--container {
+    width: 100%;
+    padding: var(--spacing-300);
+    background-color: var(--white);
+    border-radius: 10px;
+    gap: var(--spacing-300);
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .transactions-overview--container {
+    width: 100%;
+    padding: var(--spacing-400);
+    background-color: var(--white);
+    border-radius: 10px;
+    gap: var(--spacing-300);
+  }
 }

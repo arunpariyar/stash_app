@@ -5,6 +5,15 @@ function displayAsEuro(amount: number) {
   }).format(amount);
 }
 
-const utils = { displayAsEuro };
+function formatDate(date: Date) {
+  const options: Intl.DateTimeFormatOptions = {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  };
+  return new Intl.DateTimeFormat("en-GB", options).format(date);
+}
+
+const utils = { displayAsEuro, formatDate };
 
 export default utils;

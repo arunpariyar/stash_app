@@ -14,7 +14,11 @@ export default function PotsDisplay({ pots }: PotsDisplayProps) {
 
   return (
     <div className="pots-container">
-      <OverviewHeader title="Pots" link="pots"></OverviewHeader>
+      <OverviewHeader
+        title="Pots"
+        link="pots"
+        linkText="See Details"
+      ></OverviewHeader>
       <div className="pots-information">
         <div className="pots-content">
           <div className="pots-summary">
