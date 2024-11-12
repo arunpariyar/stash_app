@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-300);
+    padding: var(--spacing-400);
     background-color: var(--white);
     border-radius: 10px;
     gap: var(--spacing-300);

@@ -1,9 +1,9 @@
 @media screen and (min-width: 0px) {
   .dashboard-pages {
     width: 100%;
-    padding: var(--spacing-200);
+    padding: var(--spacing-300);
     /* TODO  this is a hack to make sure that that pages always has 15% padding at the bottom so that it doesn't go behind the fixed meu bar*/
-    padding-bottom: 15%;
+    padding-bottom: 20%;
   }
   .content {
     padding: 20px;

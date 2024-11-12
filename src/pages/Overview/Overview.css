@@ -13,8 +13,14 @@
   .account-container {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-400);
+    gap: var(--spacing-300);
     justify-content: space-between;
+  }
+
+  .pots-and-transaction-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-400);
   }
 }
 

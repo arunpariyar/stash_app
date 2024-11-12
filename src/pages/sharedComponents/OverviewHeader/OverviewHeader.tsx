@@ -5,14 +5,19 @@ import caretRight from "/images/icon-caret-right.svg";
 interface OverviewHeaderProps {
   title: string;
   link: string;
+  linkText: string;
 }
 
-export default function OverviewHeader({ title, link }: OverviewHeaderProps) {
+export default function OverviewHeader({
+  title,
+  link,
+  linkText,
+}: OverviewHeaderProps) {
   return (
     <div className="overview-header">
       <div className="overview-title">{title}</div>
       <Link className="overview-link" to={`/${link}`}>
-        See Details
+        {linkText}
         <span>
           <img src={caretRight} alt="" />
         </span>
