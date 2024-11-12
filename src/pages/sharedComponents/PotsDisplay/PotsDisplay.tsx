@@ -1,10 +1,9 @@
 import "./PotsDisplay.css";
 import { Pot } from "../../Overview/Overview";
-import { Link } from "react-router-dom";
-import caretRight from "/images/icon-caret-right.svg";
 import potsIcon from "/images/icon-pot.svg";
 import PotDisplay from "../../sharedComponents/PotDisplay/PotDisplay";
 import utils from "../../../helper/utils";
+import OverviewHeader from "../OverviewHeader/OverviewHeader";
 
 interface PotsDisplayProps {
   pots: Pot[];
@@ -15,16 +14,7 @@ export default function PotsDisplay({ pots }: PotsDisplayProps) {
 
   return (
     <div className="pots-container">
-      <div className="pots-header">
-        <div className="pots-title">Pots</div>
-        <Link className="pots-link" to="/pots">
-          See Details
-          <span>
-            <img src={caretRight} alt="" />
-          </span>
-        </Link>
-      </div>
-
+      <OverviewHeader title="Pots" link="pots"></OverviewHeader>
       <div className="pots-information">
         <div className="pots-content">
           <div className="pots-summary">

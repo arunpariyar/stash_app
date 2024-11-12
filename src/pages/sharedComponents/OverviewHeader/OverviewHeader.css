@@ -1,0 +1,21 @@
+@media screen and (min-width: 0) {
+  .overview-title {
+    font-size: var(--text-size-preset-2);
+    font-weight: bold;
+  }
+
+  .overview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .overview-link {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    font-size: var(--text-size-preset-4);
+    color: var(--primary-grey-500);
+    text-decoration: none;
+  }
+}
