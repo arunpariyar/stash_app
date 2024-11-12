@@ -9,12 +9,6 @@
     gap: var(--spacing-300);
   }
 
-  .pots-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .pots-title {
     font-size: var(--text-size-preset-2);
     font-weight: bold;
