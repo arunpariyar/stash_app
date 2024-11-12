@@ -8,7 +8,7 @@ import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
 import { action as formAction } from "./components/LoginPage/LoginPage.tsx";
 import Dashboard from "./pages/Dashboard/Dashboard.tsx";
 import Overview from "./pages/Overview/Overview.tsx";
-import Transactions from "./pages/Transactions/Transactions.tsx";
+import Transactions from "./pages/Transactions/TransactionsPage.tsx";
 import Budgets from "./pages/Budgets/Budgets.tsx";
 import Pots from "./pages/Pots/Pots.tsx";
 import Bills from "./pages/Bills/Bills.tsx";

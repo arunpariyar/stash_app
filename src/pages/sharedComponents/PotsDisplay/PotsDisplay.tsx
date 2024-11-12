@@ -29,7 +29,7 @@ export default function PotsDisplay({ pots }: PotsDisplayProps) {
         </div>
         <div className="pots-breakdown">
           {pots.map((pot) => (
-            <PotDisplay pot={pot}></PotDisplay>
+            <PotDisplay key={`${pot.name}-${pot.theme}`} pot={pot}></PotDisplay>
           ))}
         </div>
       </div>

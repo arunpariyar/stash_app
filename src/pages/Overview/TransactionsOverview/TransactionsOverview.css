@@ -1,0 +1,7 @@
+.transactions-overview--container {
+  width: 100%;
+  padding: var(--spacing-300);
+  background-color: var(--white);
+  border-radius: 10px;
+  gap: var(--spacing-300);
+}
