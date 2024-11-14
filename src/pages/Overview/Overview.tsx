@@ -3,7 +3,7 @@ import "./Overview.css";
 import AmountDisplay from "./AmountDisplay/AmountDisplay";
 import PotsDisplay from "../sharedComponents/PotsDisplay/PotsDisplay";
 import TransactionsOverview from "./TransactionsOverview/TransactionsOverview";
-import mocks from "../../dev-data/data.json";
+import { useSelector } from "react-redux";
 
 interface AmountInfo {
   title: string;
@@ -17,6 +17,9 @@ export interface Pot {
 }
 
 export default function Overview() {
+  //TODO must fix the state here
+  const transactions = useSelector((state) => state.transactions.data);
+
   const mockAmounts: AmountInfo[] = [
     { title: "Current Balance", amount: 4836 },
     { title: "Income", amount: 3814.25 },
@@ -59,7 +62,7 @@ export default function Overview() {
       </div>
       <div className="pots-and-transaction-container">
         <PotsDisplay pots={mockPots} />
-        <TransactionsOverview transactions={mocks.transactions} />
+        <TransactionsOverview transactions={transactions} />
       </div>
     </div>
   );
