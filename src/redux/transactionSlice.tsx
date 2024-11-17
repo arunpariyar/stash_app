@@ -9,7 +9,7 @@ const transactionSlice = createSlice({
   reducers: {
     setTransactions: (state, action) => {
       state.data = action.payload;
-      state.status = "loaded";
+      state.status = "";
     },
   },
 });

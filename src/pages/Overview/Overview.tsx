@@ -3,7 +3,7 @@ import "./Overview.css";
 import AmountDisplay from "./AmountDisplay/AmountDisplay";
 import PotsDisplay from "../sharedComponents/PotsDisplay/PotsDisplay";
 import TransactionsOverview from "./TransactionsOverview/TransactionsOverview";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../redux/hooks";
 
 interface AmountInfo {
   title: string;
@@ -17,8 +17,7 @@ export interface Pot {
 }
 
 export default function Overview() {
-  //TODO must fix the state here
-  const transactions = useSelector((state) => state.transactions.data);
+  const transactions = useAppSelector((state) => state.transactions.data);
 
   const mockAmounts: AmountInfo[] = [
     { title: "Current Balance", amount: 4836 },
