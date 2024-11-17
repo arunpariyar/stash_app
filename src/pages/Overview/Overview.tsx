@@ -3,6 +3,7 @@ import "./Overview.css";
 import AmountDisplay from "./AmountDisplay/AmountDisplay";
 import PotsDisplay from "../sharedComponents/PotsDisplay/PotsDisplay";
 import TransactionsOverview from "./TransactionsOverview/TransactionsOverview";
+import BudgetOverview from "./BudgetOverview/BudgetOverview";
 import mocks from "../../dev-data/data.json";
 
 interface AmountInfo {
@@ -60,6 +61,9 @@ export default function Overview() {
       <div className="pots-and-transaction-container">
         <PotsDisplay pots={mockPots} />
         <TransactionsOverview transactions={mocks.transactions} />
+      </div>
+      <div>
+        <BudgetOverview></BudgetOverview>
       </div>
     </div>
   );
