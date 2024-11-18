@@ -1,0 +1,21 @@
+@media screen and (min-width: 0px) {
+  .budgets-overview--container {
+    width: 100%;
+    padding: var(--spacing-300);
+    background-color: var(--white);
+    border-radius: 10px;
+    gap: var(--spacing-300);
+  }
+
+  .budgets-overview--contents {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .all-budgets {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+  }
+}

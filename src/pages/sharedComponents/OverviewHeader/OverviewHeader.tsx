@@ -16,7 +16,7 @@ export default function OverviewHeader({
   return (
     <div className="overview-header">
       <div className="overview-title">{title}</div>
-      <Link className="overview-link" to={`/${link}`}>
+      <Link className="overview-link" to={`/dashboard/${link}`}>
         {linkText}
         <span>
           <img src={caretRight} alt="" />
