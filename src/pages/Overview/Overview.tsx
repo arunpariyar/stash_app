@@ -42,7 +42,6 @@ export default function Overview() {
   return (
     <div className="overview-container">
       <Balance></Balance>
-      //TODO start from here
       <div className="contents">
         <div className="pots-and-transaction-container">
           <PotsDisplay pots={mockPots} />
