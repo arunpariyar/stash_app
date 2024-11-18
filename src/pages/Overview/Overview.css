@@ -1,7 +1,7 @@
 @media screen and (min-width: 0px) {
-  .page-title {
+  /* .page-title {
     font-size: var(--text-size-preset-1);
-  }
+  } */
 
   .overview-container {
     display: flex;
@@ -10,12 +10,12 @@
     gap: var(--spacing-400);
   }
 
-  .account-container {
+  /* .account-container {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-300);
     justify-content: space-between;
-  }
+  } */
 
   .pots-and-transaction-container {
     display: flex;
@@ -31,10 +31,10 @@
 }
 
 @media screen and (min-width: 685px) {
-  .account-container {
+  /* .account-container {
     flex-direction: row;
     gap: var(--spacing-300);
-  }
+  } */
 }
 
 @media (min-width: 768px) {

@@ -6,11 +6,7 @@ import TransactionsOverview from "./TransactionsOverview/TransactionsOverview";
 import BudgetOverview from "./BudgetOverview/BudgetOverview";
 import { useAppSelector } from "../../redux/hooks";
 import { RecurringBills } from "./RecurringBills/RecurringBills";
-
-interface AmountInfo {
-  title: string;
-  amount: number;
-}
+import Balance from "./Balance/Balance";
 
 export interface Pot {
   name: string;
@@ -20,12 +16,6 @@ export interface Pot {
 
 export default function Overview() {
   const transactions = useAppSelector((state) => state.transactions.data);
-
-  const mockAmounts: AmountInfo[] = [
-    { title: "Current Balance", amount: 4836 },
-    { title: "Income", amount: 3814.25 },
-    { title: "Expenses", amount: 1700.5 },
-  ];
 
   const mockPots: Pot[] = [
     {
@@ -51,23 +41,17 @@ export default function Overview() {
   ];
   return (
     <div className="overview-container">
-      <div className="page-title">Overview</div>
-      <div className="account-container">
-        {mockAmounts.map((category) => (
-          <AmountDisplay
-            key={category.title}
-            amount={category.amount}
-            title={category.title}
-          />
-        ))}
-      </div>
-      <div className="pots-and-transaction-container">
-        <PotsDisplay pots={mockPots} />
-        <TransactionsOverview transactions={transactions} />
-      </div>
-      <div className="budget-and-bills-container">
-        <BudgetOverview></BudgetOverview>
-        <RecurringBills></RecurringBills>
+      <Balance></Balance>
+      //TODO start from here
+      <div className="contents">
+        <div className="pots-and-transaction-container">
+          <PotsDisplay pots={mockPots} />
+          <TransactionsOverview transactions={transactions} />
+        </div>
+        <div className="budget-and-bills-container">
+          <BudgetOverview></BudgetOverview>
+          <RecurringBills></RecurringBills>
+        </div>
       </div>
     </div>
   );
