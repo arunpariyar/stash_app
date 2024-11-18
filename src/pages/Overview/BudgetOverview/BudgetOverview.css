@@ -32,3 +32,7 @@
     flex-direction: column;
   }
 }
+
+@media (min-width: 768px) {
+  /* Styles for tablets and small laptops */
+}

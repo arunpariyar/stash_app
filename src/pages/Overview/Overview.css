@@ -25,12 +25,16 @@
 }
 
 @media screen and (min-width: 685px) {
-  /* .account-container {
-    flex-direction: row;
-    gap: var(--spacing-300);
-  } */
 }
 
 @media (min-width: 768px) {
   /* Styles for tablets and small laptops */
+}
+
+@media (min-width: 992px) {
+  /* Styles for desktops */
+  .contents {
+    width: 100%;
+    flex-direction: row;
+  }
 }
