@@ -5,6 +5,7 @@ import PotsDisplay from "../sharedComponents/PotsDisplay/PotsDisplay";
 import TransactionsOverview from "./TransactionsOverview/TransactionsOverview";
 import BudgetOverview from "./BudgetOverview/BudgetOverview";
 import { useAppSelector } from "../../redux/hooks";
+import { RecurringBills } from "./RecurringBills/RecurringBills";
 
 interface AmountInfo {
   title: string;
@@ -64,8 +65,9 @@ export default function Overview() {
         <PotsDisplay pots={mockPots} />
         <TransactionsOverview transactions={transactions} />
       </div>
-      <div>
+      <div className="budget-and-bills-container">
         <BudgetOverview></BudgetOverview>
+        <RecurringBills></RecurringBills>
       </div>
     </div>
   );
