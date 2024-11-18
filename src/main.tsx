@@ -13,6 +13,16 @@ import Budgets from "./pages/Budgets/Budgets.tsx";
 import Pots from "./pages/Pots/Pots.tsx";
 import Bills from "./pages/Bills/Bills.tsx";
 
+//imports for redux
+import { store } from "./redux/store.tsx";
+import { Provider } from "react-redux";
+
+//configuration for react query
+import { QueryClientProvider } from "@tanstack/react-query";
+import queryClient from "./react-query/reactQuery.tsx";
+
+import { overviewLoader } from "./pages/Overview/OverviewLoader.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,11 +33,14 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+    loader: overviewLoader,
+
     children: [
       { index: true, element: <Overview /> },
       {
         path: "/dashboard/overview",
         element: <Overview />,
+        loader: overviewLoader,
       },
       {
         path: "/dashboard/transactions",
@@ -51,6 +64,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </Provider>
   </StrictMode>
 );
