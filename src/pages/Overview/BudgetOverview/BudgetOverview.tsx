@@ -1,6 +1,12 @@
 import "./BudgetOverview.css";
 import OverviewHeader from "../../sharedComponents/OverviewHeader/OverviewHeader";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  Plugin,
+} from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import mocks from "../../../dev-data/data.json";
 import PotDisplay from "../../sharedComponents/PotDisplay/PotDisplay";
@@ -18,7 +24,6 @@ export default function BudgetOverview() {
     };
   });
 
-  console.log(budgets);
   const chartData = {
     labels: [],
     datasets: [
@@ -31,43 +36,38 @@ export default function BudgetOverview() {
     ],
   };
   //FIXME need to add typescript support and also make sure that text say "of $975 Limit"
-  const textCenter = {
+
+  const total = chartData.datasets[0].data.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  const textCenter: Plugin<"doughnut"> = {
     id: "textCenter",
-    beforeDatasetsDraw(chart, args, pluginOptions) {
-      const { ctx, data } = chart;
+    beforeDatasetsDraw(chart) {
+      const { ctx } = chart;
       ctx.save();
       ctx.font = "bold 20px PublicSansRegular";
       // ctx.fillStyle = "re";
       ctx.textAlign = "center";
-      ctx.textBaseLine = "middle";
+      ctx.textBaseline = "middle";
       ctx.fillText(
-        utils.displayAsEuro(
-          data.datasets[0].data.reduce(
-            (accumulator, currentValue) => accumulator + currentValue,
-            0
-          )
-        ),
+        utils.displayAsEuro(total),
         chart.getDatasetMeta(0).data[0].x,
         chart.getDatasetMeta(0).data[0].y + 10
       );
     },
   };
 
-  const secondText = {
+  const secondText: Plugin<"doughnut"> = {
     id: "secondText",
-    beforeDatasetsDraw(chart, args, pluginOptions) {
-      const { ctx, data } = chart;
+    beforeDatasetsDraw(chart) {
+      const { ctx } = chart;
       ctx.save();
       ctx.font = "bold 10px PublicSansRegular";
       ctx.textAlign = "center";
-      ctx.textBaseLine = "middle";
+      ctx.textBaseline = "middle";
       ctx.fillText(
-        `of ${utils.displayAsEuro(
-          data.datasets[0].data.reduce(
-            (accumulator, currentValue) => accumulator + currentValue,
-            0
-          )
-        )} limit`,
+        `of ${utils.displayAsEuro(total)} limit`,
         chart.getDatasetMeta(0).data[0].x,
         chart.getDatasetMeta(0).data[0].y - 20
       );
