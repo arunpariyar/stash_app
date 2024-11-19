@@ -19,11 +19,15 @@
     display: flex;
     gap: var(--spacing-200);
     flex-wrap: wrap;
+    flex-direction: row;
   }
 }
 
 @media (min-width: 576px) {
   /* Styles for larger phones and small tablets */
+  .budgets-overview--contents {
+    flex-direction: row;
+  }
   .all-budgets {
     flex-direction: row;
   }
@@ -31,4 +35,11 @@
 
 @media (min-width: 992px) {
   /* Styles for desktops */
+
+  .budgets-overview--contents {
+    flex-direction: row;
+  }
+  .all-budgets {
+    flex-direction: column;
+  }
 }
