@@ -2,6 +2,7 @@
   .pot-container {
     width: 45%;
     display: flex;
+    flex-wrap: wrap;
   }
 
   .empty-div {

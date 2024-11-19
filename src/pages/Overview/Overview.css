@@ -1,8 +1,4 @@
 @media screen and (min-width: 0px) {
-  .page-title {
-    font-size: var(--text-size-preset-1);
-  }
-
   .overview-container {
     display: flex;
     flex-direction: column;
@@ -10,27 +6,37 @@
     gap: var(--spacing-400);
   }
 
-  .account-container {
+  .contents {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-300);
-    justify-content: space-between;
   }
-
   .pots-and-transaction-container {
     display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-400);
+  }
+
+  .budget-and-bills-container {
+    display: flex;
+    width: 100%;
     flex-direction: column;
     gap: var(--spacing-400);
   }
 }
 
 @media screen and (min-width: 685px) {
-  .account-container {
-    flex-direction: row;
-    gap: var(--spacing-300);
-  }
 }
 
 @media (min-width: 768px) {
   /* Styles for tablets and small laptops */
+}
+
+@media (min-width: 992px) {
+  /* Styles for desktops */
+  .contents {
+    width: 100%;
+    flex-direction: row;
+  }
 }
