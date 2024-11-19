@@ -1,0 +1,33 @@
+@media screen and (min-width: 0px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--spacing-300);
+    background-color: var(--primary-beige-100);
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: var(--text-size-preset-4);
+    color: var(--primary-grey-500);
+  }
+
+  .amount {
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Styles for desktops */
+  .container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Styles for large desktop screens */
+  .container {
+    width: 60%;
+  }
+}

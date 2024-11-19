@@ -1,0 +1,30 @@
+@media screen and (min-width: 0px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--spacing-400);
+  }
+
+  .pageTitle {
+    font-size: var(--text-size-preset-1);
+  }
+
+  .accountContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-300);
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 685px) {
+  .accountContainer {
+    flex-direction: row;
+    gap: var(--spacing-300);
+  }
+}
+
+@media (min-width: 768px) {
+  /* Styles for tablets and small laptops */
+}
