@@ -13,12 +13,14 @@
   }
   .pots-and-transaction-container {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: var(--spacing-400);
   }
 
   .budget-and-bills-container {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: var(--spacing-400);
   }

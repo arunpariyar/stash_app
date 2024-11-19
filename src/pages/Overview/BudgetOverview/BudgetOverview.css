@@ -24,15 +24,11 @@
 
 @media (min-width: 576px) {
   /* Styles for larger phones and small tablets */
-  .budgets-overview--contents {
-    flex-direction: row;
-  }
-
   .all-budgets {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 
-@media (min-width: 768px) {
-  /* Styles for tablets and small laptops */
+@media (min-width: 992px) {
+  /* Styles for desktops */
 }

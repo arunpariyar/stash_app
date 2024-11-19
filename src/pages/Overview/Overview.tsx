@@ -1,6 +1,4 @@
 import "./Overview.css";
-
-import AmountDisplay from "./AmountDisplay/AmountDisplay";
 import PotsDisplay from "../sharedComponents/PotsDisplay/PotsDisplay";
 import TransactionsOverview from "./TransactionsOverview/TransactionsOverview";
 import BudgetOverview from "./BudgetOverview/BudgetOverview";
