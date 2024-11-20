@@ -1,5 +1,5 @@
 import "./PotDisplay.css";
-import { Pot } from "../../Overview/Overview";
+import { Pot } from "../../../models/pot";
 import utils from "../../../helper/utils";
 
 interface PotDisplayProps {

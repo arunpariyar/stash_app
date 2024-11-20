@@ -4,19 +4,12 @@ import TransactionsOverview from "./TransactionsOverview/TransactionsOverview";
 import BudgetOverview from "./BudgetOverview/BudgetOverview";
 import { useAppSelector } from "../../redux/hooks";
 import { RecurringBills } from "./RecurringBills/RecurringBills";
+import { Pot } from "../../models/pot";
 import Balance from "./Balance/Balance";
-
-export interface Pot {
-  id: string;
-  name: string;
-  total: number;
-  theme: string;
-  target: number;
-}
 
 export default function Overview() {
   const transactions = useAppSelector((state) => state.transactions.data);
-  const pots = useAppSelector((state) => state.pots.data);
+  const pots: Pot[] = useAppSelector((state) => state.pots.data);
 
   return (
     <div className="overview-container">

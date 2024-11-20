@@ -18,9 +18,11 @@ export default function BudgetOverview() {
   //FIXME This is not the right way to go about it a completely different component or and abstracted compoent will be needed to solve this
   const budgets = mocks.budgets.map((budget) => {
     return {
+      id: crypto.randomUUID(),
       name: budget.category,
       theme: budget.theme,
       total: budget.maximum,
+      target: 500,
     };
   });
 
