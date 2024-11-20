@@ -7,7 +7,6 @@ interface PotDisplayProps {
 }
 
 export default function PotDisplay({ pot }: PotDisplayProps) {
-  console.log({ pot });
   return (
     <div className="pot-container">
       <div className="single-pot">

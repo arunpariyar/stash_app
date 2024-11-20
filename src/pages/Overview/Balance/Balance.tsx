@@ -14,7 +14,6 @@ export default function Balance() {
   ];
   return (
     <div className={styles.container}>
-      <div className={styles.pageTitle}>Overview</div>
       <div className={styles.accountContainer}>
         {mockAmounts.map((category) => (
           <AmountDisplay
