@@ -1,5 +1,5 @@
 import "./PotsDisplay.css";
-import { Pot } from "../../Overview/Overview";
+import { Pot } from "../../../models/pot";
 import potsIcon from "/images/icon-pot.svg";
 import PotDisplay from "../../sharedComponents/PotDisplay/PotDisplay";
 import utils from "../../../helper/utils";
