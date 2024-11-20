@@ -7,42 +7,23 @@ import { RecurringBills } from "./RecurringBills/RecurringBills";
 import Balance from "./Balance/Balance";
 
 export interface Pot {
+  id: string;
   name: string;
-  amount: number;
+  total: number;
   theme: string;
+  target: number;
 }
 
 export default function Overview() {
   const transactions = useAppSelector((state) => state.transactions.data);
+  const pots = useAppSelector((state) => state.pots.data);
 
-  const mockPots: Pot[] = [
-    {
-      name: "Savings",
-      amount: 159,
-      theme: "green",
-    },
-    {
-      name: "Gift",
-      amount: 40,
-      theme: "black",
-    },
-    {
-      name: "Concert Ticket",
-      amount: 110,
-      theme: "purple",
-    },
-    {
-      name: "New Laptop",
-      amount: 100,
-      theme: "brown",
-    },
-  ];
   return (
     <div className="overview-container">
       <Balance></Balance>
       <div className="contents">
         <div className="pots-and-transaction-container">
-          <PotsDisplay pots={mockPots} />
+          <PotsDisplay pots={pots} />
           <TransactionsOverview transactions={transactions} />
         </div>
         <div className="budget-and-bills-container">

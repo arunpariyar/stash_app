@@ -10,7 +10,7 @@ interface PotsDisplayProps {
 }
 
 export default function PotsDisplay({ pots }: PotsDisplayProps) {
-  const total = pots.reduce((acc, pot) => acc + pot.amount, 0);
+  const total = pots.reduce((acc, pot) => acc + Number(pot.total), 0);
 
   return (
     <div className="pots-container">
@@ -32,7 +32,7 @@ export default function PotsDisplay({ pots }: PotsDisplayProps) {
           </div>
         </div>
         <div className="pots-breakdown">
-          {pots.map((pot) => (
+          {pots.slice(0, 4).map((pot) => (
             <PotDisplay key={`${pot.name}-${pot.theme}`} pot={pot}></PotDisplay>
           ))}
         </div>

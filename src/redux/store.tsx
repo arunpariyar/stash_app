@@ -1,10 +1,12 @@
 //configuration for redux toolkit
 import { configureStore } from "@reduxjs/toolkit";
 import transactionsReducer from "./transactionSlice";
+import potReducer from "./potSlice";
 
 export const store = configureStore({
   reducer: {
     transactions: transactionsReducer,
+    pots: potReducer,
   },
 });
 

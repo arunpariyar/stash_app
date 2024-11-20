@@ -1,6 +1,5 @@
 import OverviewHeader from "../../sharedComponents/OverviewHeader/OverviewHeader";
 import styles from "./RecurringBills.module.css";
-import mocks from "../../../dev-data/data.json";
 import BillRow from "./BillRow/BillRow";
 
 export function RecurringBills() {
@@ -17,7 +16,7 @@ export function RecurringBills() {
       theme: "#82c9d7",
     },
   ];
-  console.log(mocks.transactions);
+
   return (
     <div className={styles.container}>
       <OverviewHeader
@@ -27,7 +26,7 @@ export function RecurringBills() {
       ></OverviewHeader>
       <div className={styles.billsContainer}>
         {mockData.map((bill) => (
-          <BillRow bill={bill}></BillRow>
+          <BillRow key={crypto.randomUUID()} bill={bill}></BillRow>
         ))}
       </div>
     </div>
