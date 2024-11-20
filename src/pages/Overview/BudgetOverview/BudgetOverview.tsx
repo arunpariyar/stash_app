@@ -20,7 +20,7 @@ export default function BudgetOverview() {
     return {
       name: budget.category,
       theme: budget.theme,
-      amount: budget.maximum,
+      total: budget.maximum,
     };
   });
 
