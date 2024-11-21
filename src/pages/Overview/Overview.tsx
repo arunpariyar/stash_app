@@ -14,8 +14,7 @@ export default function Overview() {
 
   return (
     <div className="overview-container">
-      {/* <div className="page-title">Overview</div> */}
-      <PageHeader></PageHeader>
+      <PageHeader title="Overview"></PageHeader>
       <Balance></Balance>
       <div className="contents">
         <div className="pots-and-transaction-container">
