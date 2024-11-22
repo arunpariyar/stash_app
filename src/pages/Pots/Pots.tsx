@@ -3,9 +3,13 @@ import { useAppSelector } from "../../redux/hooks";
 import { Pot } from "../../models/pot";
 import PageHeader from "../sharedComponents/PageHeader/PageHeader";
 import optionsIcon from "/images/icon-ellipsis.svg";
+import utils from "../../helper/utils";
+import GreyButton from "./GreyButton/GreyButton";
 
 export default function Pots() {
   const pots: Pot[] = useAppSelector((state) => state.pots.data);
+
+  console.log(pots[0]);
 
   return (
     <>
@@ -27,8 +31,42 @@ export default function Pots() {
                   {pot.name}
                 </div>
               </div>
-
-              <img src={optionsIcon} alt="menu option for pot" />
+              <button
+                onClick={() => {
+                  alert("hello");
+                }}
+              >
+                <img src={optionsIcon} alt="menu option for pot" />
+              </button>
+            </div>
+            <div>
+              <div>
+                <p>Total Saved</p>
+                <p>{utils.displayAsEuro(pot.total)}</p>
+              </div>
+              <div>
+                <progress
+                  className={styles.progressBar}
+                  max={100}
+                  value={`${(pot.total / pot.target) * 100}`}
+                ></progress>
+                <p>{`${(pot.total / pot.target) * 100}%`}</p>
+                <p>{`Target of ${utils.displayAsEuro(pot.target)}`}</p>
+              </div>
+              <div>
+                <GreyButton
+                  label="+Add Money"
+                  onClick={() => {
+                    alert("coming soon");
+                  }}
+                ></GreyButton>
+                <GreyButton
+                  label="Withdraw"
+                  onClick={() => {
+                    alert("coming soon");
+                  }}
+                ></GreyButton>
+              </div>
             </div>
           </div>
         ))}
