@@ -1,5 +1,5 @@
 import styles from "./PotOptionsButton.module.css";
-import optionsIcon from "../../../../public/images/icon-ellipsis.svg";
+import optionsIcon from "/images/icon-ellipsis.svg";
 
 interface PotOptionsButtonProps {
   onClick: () => void;
