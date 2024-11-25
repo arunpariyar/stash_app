@@ -6,6 +6,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { RecurringBills } from "./RecurringBills/RecurringBills";
 import { Pot } from "../../models/pot";
 import Balance from "./Balance/Balance";
+import PageHeader from "../sharedComponents/PageHeader/PageHeader";
 
 export default function Overview() {
   const transactions = useAppSelector((state) => state.transactions.data);
@@ -13,6 +14,7 @@ export default function Overview() {
 
   return (
     <div className="overview-container">
+      <PageHeader title="Overview"></PageHeader>
       <Balance></Balance>
       <div className="contents">
         <div className="pots-and-transaction-container">

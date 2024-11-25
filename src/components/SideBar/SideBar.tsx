@@ -6,7 +6,7 @@ import minmizeBtn from "/images/icon-minimize-menu.svg";
 export default function SideBar() {
   const navItems = [
     {
-      name: "home",
+      name: "overview",
       icon: "/images/icon-nav-overview.svg",
       link: "overview",
     },

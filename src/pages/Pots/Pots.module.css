@@ -1,0 +1,133 @@
+@media (min-width: 0px) {
+  /* Styles for larger phones and small tablets */
+  .potsCollection {
+    display: flex;
+    gap: var(--spacing-300);
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .potsPageHeader {
+    margin-bottom: var(--spacing-400);
+  }
+  .potWrapper {
+    width: 100%;
+    padding: var(--spacing-300);
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-500);
+  }
+  .potsPageHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .potDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-200);
+  }
+
+  .potTitle {
+    font-size: var(--text-size-preset-4);
+    color: var(--primary-grey-500);
+  }
+
+  .potAmount {
+    color: var(--primary-grey-900);
+    font-size: var(--text-size-preset-1);
+    font-weight: bold;
+  }
+  .potDetailSaved {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .progressDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-150);
+  }
+
+  /* .progressBarWrapper {
+    background-color: var(--primary-beige-100);
+    position: relative;
+    border-radius: 20px;
+    height: 5px;
+  } */
+
+  progress {
+    width: 100%;
+  }
+
+  .potTargetDetails {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .callToActionWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-200);
+  }
+
+  .targetPercentage {
+    font-size: var(--text-size-preset-5);
+    font-weight: bold;
+    color: var(--primary-grey-500);
+  }
+
+  .targetTotal {
+    font-size: var(--text-size-preset-5);
+    color: var(--primary-grey-500);
+  }
+
+  .menuBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dot {
+    height: 16px;
+    width: 16px;
+    background-color: #bbb;
+    border-radius: 50%;
+  }
+
+  .title {
+    font-size: var(--text-size-preset-2);
+    color: var(--primary-grey-900);
+    font-weight: bolder;
+  }
+
+  .menuTitle {
+    display: flex;
+    gap: var(--spacing-200);
+    align-items: center;
+  }
+
+  .optionsButton {
+    border: none;
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Styles for tablets and small laptops */
+
+  .potWrapper {
+    width: 48%;
+  }
+
+  .potsCollection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* justify-content: space-around; */
+  }
+}
