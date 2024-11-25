@@ -3,7 +3,7 @@ export default function Bills() {
   return (
     <div>
       Bills Page Coming Soon 🧑‍💻
-      <PageHeader></PageHeader>
+      <PageHeader title="Bills"></PageHeader>
     </div>
   );
 }
