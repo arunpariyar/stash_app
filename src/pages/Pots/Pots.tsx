@@ -6,6 +6,11 @@ import PotOptionsButton from "./PotOptionsButton/PotOptionsButton";
 import utils from "../../helper/utils";
 import BeigeButton from "./BeigeButton/BeigeButton";
 
+function calcPercentage(total: number, target: number) {
+  const percentage = (total / target) * 100;
+  return percentage.toFixed(1);
+}
+
 export default function Pots() {
   const pots: Pot[] = useAppSelector((state) => state.pots.data);
 
@@ -48,15 +53,18 @@ export default function Pots() {
                 <div className={styles.progressBarWrapper}>
                   <progress
                     className={styles.progressBar}
+                    style={{ accentColor: pot.theme }}
+                    data-accent={pot.theme}
                     max={100}
-                    value={`${(pot.total / pot.target) * 100}`}
+                    value={`${calcPercentage(pot.total, pot.target)}`}
                   ></progress>
                 </div>
 
                 <div className={styles.potTargetDetails}>
-                  <p className={styles.targetPercentage}>{`${
-                    (pot.total / pot.target) * 100
-                  }%`}</p>
+                  <p className={styles.targetPercentage}>{`${calcPercentage(
+                    pot.total,
+                    pot.target
+                  )}%`}</p>
                   <p
                     className={styles.targetTotal}
                   >{`Target of ${utils.displayAsEuro(pot.target)}`}</p>
