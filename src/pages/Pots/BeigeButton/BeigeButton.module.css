@@ -1,0 +1,17 @@
+.beigeBtn {
+  background-color: var(--primary-beige-100);
+  border: 1px solid var(--primary-beige-100);
+  color: var(--primary-grey-900);
+  padding: var(--spacing-200);
+  font-size: var(--text-size-preset-4);
+  font-weight: bold;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.beigeBtn:hover {
+  background-color: var(--white);
+  border: 1px solid var(--primary-grey-300);
+  transition: all 500ms ease-in;
+}

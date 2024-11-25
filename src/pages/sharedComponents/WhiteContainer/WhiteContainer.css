@@ -1,0 +1,5 @@
+.white-container {
+  padding: var(--spacing-300);
+  background-color: var(--white);
+  border-radius: 10px;
+}
