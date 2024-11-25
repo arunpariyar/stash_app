@@ -46,7 +46,7 @@ export async function action({ request }: { request: Request }) {
   // const errors = {};
 
   const loginDetails: FormData = { email, password };
-  // console.log(loginDetails);
+  console.log(loginDetails);
 
   // const data = await LoginRequest(
   //   `${CONFIG.baseUrl}/users/login`,
