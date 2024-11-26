@@ -54,7 +54,7 @@ function Window({ children, name }: WindowProps) {
   return createPortal(
     <Overlay>
       <StyledModal>
-        <button className={styles.closeMenuBtn}>
+        <button onClick={close} className={styles.closeMenuBtn}>
           <img src={closeMenu} alt="" />
         </button>
         {cloneElement(children, { onCloseModal: close })}
