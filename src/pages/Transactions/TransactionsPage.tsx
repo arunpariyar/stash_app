@@ -1,3 +1,7 @@
 export default function Transactions() {
-  return <div>Transactions Page Coming Soon 🧑‍💻</div>;
+  return (
+    <div>
+      <h1>Transactions Page Coming Soon 🧑‍💻</h1>
+    </div>
+  );
 }
