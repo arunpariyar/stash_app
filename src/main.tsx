@@ -23,6 +23,8 @@ import queryClient from "./react-query/reactQuery.tsx";
 
 import { overviewLoader } from "./pages/Overview/OverviewLoader.tsx";
 
+import { action as createPotAction } from "./components/Forms/AddNewPotForm/AddNewPotForm.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +55,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/pots",
         element: <Pots />,
+        action: createPotAction,
       },
       {
         path: "/dashboard/bills",
