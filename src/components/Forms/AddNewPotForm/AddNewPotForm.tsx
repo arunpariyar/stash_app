@@ -1,6 +1,7 @@
-import { FormEvent } from "react";
 import utils from "../../../helper/utils";
 import { Form, redirect } from "react-router-dom";
+import { createPot } from "../../../api/api";
+import { Pot } from "../../../models/pot";
 
 interface AddNewPotFormProps {
   onCloseModal: () => void;
@@ -8,15 +9,20 @@ interface AddNewPotFormProps {
 
 export async function action({ request }: { request: Request }) {
   const formData = await request.formData();
-  const newPot = Object.fromEntries(formData);
-  console.log("Form data received in action:", newPot); // Log form data
+  const newPot: Partial<Pot> = Object.fromEntries(formData);
+
+  //get total to be zero
+  newPot.total = 0;
 
   // Optional: Check if data is being passed correctly
-  if (!newPot.potname || !newPot.target || !newPot.theme) {
+  if (!newPot.name || !newPot.target || !newPot.theme) {
     // can place a toast here
     alert("Missing required fields");
     return redirect(`/dashboard/pots`);
   }
+
+  const result = await createPot(newPot);
+  console.log(result);
 
   return redirect(`/dashboard/pots`);
 }
@@ -31,8 +37,8 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
   return (
     <Form method="post" onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="potname">Pot Name</label>
-        <input type="text" name="potname" />
+        <label htmlFor="name">Pot Name</label>
+        <input type="text" name="name" />
       </div>
       <div>
         <label htmlFor="target">Target</label>

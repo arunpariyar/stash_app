@@ -30,18 +30,26 @@ export async function fetchPots() {
   }
 }
 
-export async function AddNewPot(pot: Pot) {
+export async function createPot(pot: Partial<Pot>) {
   try {
     const response = await fetch(`${baseUrl}/api/v2/pots`, {
       method: "POST",
-      body: JSON.stringify(pot),
+      headers: { "Content-Type": "application/json" }, //very important to have the headers here
+      body: JSON.stringify({
+        name: pot.name,
+        target: pot.target,
+        total: pot.total,
+        theme: pot.theme,
+      }),
     });
 
     if (!response.ok) {
       throw new Error(`Error: ${response.status} - ${response.statusText}`);
     }
 
-    return await response.json();
+    const newPot = await response.json();
+
+    return newPot;
   } catch (error) {
     throw error;
   }
