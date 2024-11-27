@@ -1,6 +1,7 @@
 import styles from "./Model.module.css";
 import {
   cloneElement,
+  forwardRef,
   PropsWithChildren,
   ReactElement,
   useContext,
@@ -9,10 +10,7 @@ import closeMenu from "/images/icon-close-modal.svg";
 import { createPortal } from "react-dom";
 import { createContext } from "react";
 import { useState } from "react";
-interface WindowProps {
-  children: ReactElement;
-  name: string;
-}
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 interface ModalContextType {
   openName: string;
@@ -26,10 +24,9 @@ const defaultValue: ModalContextType = {
   close: () => {},
 };
 
-//creating the Model context
-const ModalContext = createContext(defaultValue);
+const ModalContext = createContext<ModalContextType>(defaultValue);
 
-export default function Modal({ children }: PropsWithChildren) {
+export default function Modal({ children }: PropsWithChildren): ReactElement {
   const [openName, setOpenName] = useState("");
   const close = () => setOpenName("");
   const open = setOpenName;
@@ -46,34 +43,47 @@ interface OpenProps {
   children: ReactElement;
 }
 
-function Open({ children, opens: opensWindowName }: OpenProps) {
+function Open({ children, opens: opensWindowName }: OpenProps): ReactElement {
   const { open } = useContext(ModalContext);
   return cloneElement(children, { onClick: () => open(opensWindowName) });
 }
 
-function Window({ children, name }: WindowProps) {
+interface WindowProps {
+  children: ReactElement;
+  name: string;
+}
+
+function Window({ children, name }: WindowProps): ReactElement | null {
   const { openName, close } = useContext(ModalContext);
+
+  const ref = useOutsideClick(close);
 
   if (name !== openName) return null;
 
   return createPortal(
     <Overlay>
-      <StyledModal>
+      <ModalWrapper ref={ref}>
         <button onClick={close} className={styles.closeMenuBtn}>
           <img src={closeMenu} alt="" />
         </button>
         {cloneElement(children, { onCloseModal: close })}
-      </StyledModal>
+      </ModalWrapper>
     </Overlay>,
     document.body
   );
 }
 
-function StyledModal({ children }: PropsWithChildren) {
-  return <div className={styles.styledModal}>{children}</div>;
-}
+const ModalWrapper = forwardRef<HTMLDivElement, PropsWithChildren>(
+  ({ children }, ref): ReactElement => {
+    return (
+      <div ref={ref} className={styles.styledModal}>
+        {children}
+      </div>
+    );
+  }
+);
 
-function Overlay({ children }: PropsWithChildren) {
+function Overlay({ children }: PropsWithChildren): ReactElement {
   return (
     <div className={styles.overlay}>
       <>{children}</>

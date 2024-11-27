@@ -15,8 +15,6 @@ function calcPercentage(total: number, target: number) {
 export default function Pots() {
   const pots: Pot[] = useAppSelector((state) => state.pots.data);
 
-  console.log(pots[0]);
-
   return (
     <div className={styles.potsContainer}>
       <div className={styles.potsPageHeader}>
@@ -26,7 +24,7 @@ export default function Pots() {
 
       <div className={styles.potsCollection}>
         {pots.map((pot) => (
-          <div className={styles.potWrapper}>
+          <div key={pot.id} className={styles.potWrapper}>
             <div className={styles.menuBar}>
               <div className={styles.menuTitle}>
                 <div
