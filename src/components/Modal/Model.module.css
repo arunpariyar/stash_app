@@ -1,0 +1,33 @@
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+}
+
+.styledModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: var(--spacing-400);
+  transition: all 0.5s;
+}
+
+.closeMenuBtn {
+  position: fixed;
+  right: 35px;
+  top: 35px;
+  text-decoration: none;
+  background-color: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--white);
+}
