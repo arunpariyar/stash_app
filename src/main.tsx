@@ -24,6 +24,7 @@ import queryClient from "./react-query/reactQuery.tsx";
 import { overviewLoader } from "./pages/Overview/OverviewLoader.tsx";
 
 import { action as createPotAction } from "./components/Forms/AddNewPotForm/AddNewPotForm.tsx";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
         <RouterProvider router={router} />
       </QueryClientProvider>
     </Provider>
