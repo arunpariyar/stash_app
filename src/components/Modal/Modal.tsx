@@ -41,7 +41,12 @@ export default function Modal({ children }: PropsWithChildren) {
   );
 }
 
-function Open({ children, opens: opensWindowName }) {
+interface OpenProps {
+  opens: string;
+  children: ReactElement;
+}
+
+function Open({ children, opens: opensWindowName }: OpenProps) {
   const { open } = useContext(ModalContext);
   return cloneElement(children, { onClick: () => open(opensWindowName) });
 }
