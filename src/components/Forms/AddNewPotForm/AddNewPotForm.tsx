@@ -1,17 +1,14 @@
 import utils from "../../../helper/utils";
-import { Form, redirect } from "react-router-dom";
-import { createPot } from "../../../api/api";
-import { Pot } from "../../../models/pot";
-import { useMutation } from "@tanstack/react-query";
-import queryClient from "../../../react-query/reactQuery";
 import { FormEvent } from "react";
+import toast from "react-hot-toast";
 
 import { z } from "zod";
+import useNewPot from "../../../hooks/Pots/useNewPot";
 
 const addPotSchema = z.object({
   name: z.string(),
   theme: z.string(),
-  target: z.string(),
+  target: z.number({ coerce: true }),
 });
 
 interface AddNewPotFormProps {
@@ -39,26 +36,27 @@ interface AddNewPotFormProps {
 // }
 
 export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
-  // const { mutate, isLoading } = useMutation({
-  //   mutationFn: createPot,
-  //   onSuccess: () => {
-  //     queryClient.invalidateQueries({ queryKey: ["pots"] });
-  //   },
-  //   onError: (err) => console.log(err),
-  // });
+  const { mutate, isPending } = useNewPot({ onCloseModal });
+
   function handleSubmit(e: FormEvent) {
-    e.preventDefault;
+    e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
     const formValues = Object.fromEntries(formData);
     const result = addPotSchema.safeParse(formValues);
-    console.log(result);
 
-    // const newPot
-
-    // mutate();
-    //the preventDefault keeps from the form to be submitted so it has to be done manually
-    //event.preventDefault is not applied because we want the default behaviour to work
-    onCloseModal();
+    if (result.success) {
+      if (!result.data.name || !result.data.target || !result.data.theme) {
+        console.log("got here");
+        toast.error("Please enter details correctly");
+      } else {
+        mutate({
+          name: result.data.name,
+          target: result.data.target,
+          theme: result.data.theme,
+          total: 0,
+        });
+      }
+    }
   }
 
   return (
@@ -83,7 +81,9 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
             ))}
         </select>
       </div>
-      <button type="submit">Add Pot</button>
+      <button disabled={isPending} type="submit">
+        Add Pot
+      </button>
       <button
         onClick={() => {
           onCloseModal();

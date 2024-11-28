@@ -18,7 +18,6 @@ export default function Overview() {
     useTransaction();
   const { isPending: potsPending, data: pots } = usePots();
 
-  console.log(transactionPending, potsPending);
   if (transactionPending || potsPending) return <div>Loading...</div>;
 
   return (
