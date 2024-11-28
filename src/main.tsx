@@ -36,7 +36,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
-    loader: overviewLoader,
+    // loader: overviewLoader,
 
     children: [
       { index: true, element: <Overview /> },
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/pots",
         element: <Pots />,
-        action: createPotAction,
+        // action: createPotAction,
       },
       {
         path: "/dashboard/bills",

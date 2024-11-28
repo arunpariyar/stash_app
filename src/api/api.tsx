@@ -8,8 +8,8 @@ export async function fetchTransactions() {
     if (!response.ok) {
       throw new Error(`Error: ${response.status} - ${response.statusText}`);
     }
-
-    return await response.json();
+    const transactions = await response.json();
+    return transactions.body;
   } catch (error) {
     console.error(error);
     throw error;
@@ -24,7 +24,8 @@ export async function fetchPots() {
       throw new Error(`Error: ${response.status} - ${response.statusText}`);
     }
 
-    return await response.json();
+    const pots = await response.json();
+    return pots.body;
   } catch (error) {
     throw error;
   }
@@ -49,7 +50,7 @@ export async function createPot(pot: Partial<Pot>) {
 
     const newPot = await response.json();
 
-    return newPot;
+    return newPot.body;
   } catch (error) {
     throw error;
   }
