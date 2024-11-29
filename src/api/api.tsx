@@ -55,3 +55,20 @@ export async function createPot(pot: Partial<Pot>) {
     throw error;
   }
 }
+
+export async function deletePot(id: string) {
+  try {
+    const response = await fetch(`${baseUrl}/api/v2/pots/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data.body;
+  } catch (error) {
+    throw error;
+  }
+}

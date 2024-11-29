@@ -115,6 +115,41 @@
     border: none;
     text-decoration: none;
   }
+  .potOptionsContainer {
+    position: relative;
+  }
+
+  .hide {
+    display: none;
+    visibility: hidden;
+  }
+  .editDeleteMenu {
+    position: absolute;
+    right: 0px;
+    top: 34px;
+    width: 100px;
+    background-color: var(--white);
+    padding: var(--spacing-200);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 1px 12px -3px #000000;
+    box-shadow: 0px 1px 12px -3px #000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-100);
+    border: none;
+  }
+  .editDeleteBtn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: var(--primary-grey-900);
+    font-size: var(--text-size-preset-4);
+  }
+  .divider {
+    border: 0.5px solid var(--primary-grey-100);
+  }
 }
 
 @media (min-width: 768px) {

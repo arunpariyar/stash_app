@@ -6,6 +6,8 @@ import utils from "../../helper/utils";
 import BeigeButton from "./BeigeButton/BeigeButton";
 import AddPot from "./AddPot/AddPot";
 import usePots from "../../hooks/Pots/usePots";
+import useDeletePot from "../../hooks/Pots/useDeletePot";
+import { useState } from "react";
 
 function calcPercentage(total: number, target: number) {
   const percentage = (total / target) * 100;
@@ -14,6 +16,27 @@ function calcPercentage(total: number, target: number) {
 
 export default function Pots() {
   const { isPending: potsPending, data: pots } = usePots();
+
+  const [editDeleteState, setEditDeletState] = useState(true);
+
+  function show(state: boolean) {
+    return state
+      ? "styles.potOptionsContainer, styles.hide"
+      : "styles.potOptionsContainer";
+  }
+
+  //TODO logic to handle delete pot
+  // const { mutate } = useDeletePot();
+
+  // const handleDeletePot = (id: string) => {
+  //   mutate(id);
+  // };
+  // handler to delete the pot
+  // handleDeletePot(pot.id);
+
+  const toggleEditDelete = () => {
+    setEditDeletState((s) => !s);
+  };
 
   if (potsPending) return <h3>Loading...</h3>;
 
@@ -37,11 +60,18 @@ export default function Pots() {
                   {pot.name}
                 </div>
               </div>
-              <PotOptionsButton
-                onClick={() => {
-                  alert("alert soon");
-                }}
-              ></PotOptionsButton>
+              <div className={styles.potOptionsContainer}>
+                <PotOptionsButton onClick={toggleEditDelete}></PotOptionsButton>
+                <div className={styles.editDeleteMenu}>
+                  <div>
+                    <button className={styles.editDeleteBtn}>Edit Pot</button>
+                  </div>
+                  <hr className={styles.divider} />
+                  <div>
+                    <button className={styles.editDeleteBtn}>Delete Pot</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className={styles.potDetails}>
               <div className={styles.potDetailSaved}>
