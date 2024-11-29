@@ -1,10 +1,11 @@
 import styles from "./Pots.module.css";
-import { useAppSelector } from "../../redux/hooks";
 import { Pot } from "../../models/pot";
 import PageHeader from "../sharedComponents/PageHeader/PageHeader";
 import PotOptionsButton from "./PotOptionsButton/PotOptionsButton";
 import utils from "../../helper/utils";
 import BeigeButton from "./BeigeButton/BeigeButton";
+import AddPot from "./AddPot/AddPot";
+import usePots from "../../hooks/Pots/usePots";
 
 function calcPercentage(total: number, target: number) {
   const percentage = (total / target) * 100;
@@ -12,20 +13,20 @@ function calcPercentage(total: number, target: number) {
 }
 
 export default function Pots() {
-  const pots: Pot[] = useAppSelector((state) => state.pots.data);
+  const { isPending: potsPending, data: pots } = usePots();
 
-  console.log(pots[0]);
+  if (potsPending) return <h3>Loading...</h3>;
 
   return (
     <div className={styles.potsContainer}>
       <div className={styles.potsPageHeader}>
         <PageHeader title="Pots"></PageHeader>
-        <button>+Add New Pot</button>
+        <AddPot></AddPot>
       </div>
 
       <div className={styles.potsCollection}>
-        {pots.map((pot) => (
-          <div className={styles.potWrapper}>
+        {pots.map((pot: Pot) => (
+          <div key={pot.id} className={styles.potWrapper}>
             <div className={styles.menuBar}>
               <div className={styles.menuTitle}>
                 <div

@@ -48,13 +48,15 @@ export async function action({ request }: { request: Request }) {
   const loginDetails: FormData = { email, password };
   console.log(loginDetails);
 
+  return redirect("/dashboard");
+
   // const data = await LoginRequest(
   //   `${CONFIG.baseUrl}/users/login`,
   //   loginDetails
   // );
 
   // if (!data.error) {
-  return redirect("/dashboard");
+  // return redirect("/dashboard");
   // }
 
   // alert("username and password dont match");
