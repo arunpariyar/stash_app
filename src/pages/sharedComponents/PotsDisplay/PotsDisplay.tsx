@@ -33,7 +33,7 @@ export default function PotsDisplay({ pots }: PotsDisplayProps) {
         </div>
         <div className="pots-breakdown">
           {pots.slice(0, 4).map((pot) => (
-            <PotDisplay key={`${pot.name}-${pot.theme}`} pot={pot}></PotDisplay>
+            <PotDisplay key={crypto.randomUUID()} pot={pot}></PotDisplay>
           ))}
         </div>
       </div>

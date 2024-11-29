@@ -21,7 +21,8 @@ import { Provider } from "react-redux";
 import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "./react-query/reactQuery.tsx";
 
-import { overviewLoader } from "./pages/Overview/OverviewLoader.tsx";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -33,14 +34,12 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
-    loader: overviewLoader,
 
     children: [
       { index: true, element: <Overview /> },
       {
         path: "/dashboard/overview",
         element: <Overview />,
-        loader: overviewLoader,
       },
       {
         path: "/dashboard/transactions",
@@ -66,7 +65,27 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
         <RouterProvider router={router} />
+        <Toaster
+          position="top-center"
+          gutter={12}
+          containerStyle={{ margin: "10px" }}
+          toastOptions={{
+            success: {
+              duration: 3000,
+            },
+            error: {
+              duration: 3000,
+            },
+            style: {
+              fontSize: "15px",
+              maxWidth: "500px",
+              padding: "16px 24px",
+              background: "var(--white)",
+            },
+          }}
+        />
       </QueryClientProvider>
     </Provider>
   </StrictMode>

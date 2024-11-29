@@ -1,5 +1,5 @@
 import Modal from "../../../components/Modal/Modal";
-import AddPotForm from "./Form";
+import AddNewPotForm from "../../../components/Forms/AddNewPotForm/AddNewPotForm";
 
 export default function AddPot() {
   return (
@@ -8,35 +8,9 @@ export default function AddPot() {
         <button>+ Add Pot</button>
       </Modal.Open>
       <Modal.Window name="pot-form">
-        <AddPotForm />
+        {/* {the empty function is being passed just as place holder the actual onCloseModal is passed while cloning element} */}
+        <AddNewPotForm onCloseModal={() => {}}></AddNewPotForm>
       </Modal.Window>
     </Modal>
   );
-}
-
-{
-  /* // const [modelState, setModalState] = useState(false);
-  // return (
-  //   <div>
-  //     <button onClick={() => setModalState(!modelState)}>+ Add Pot</button>
-  //     {modelState && (
-  //       <Modal
-  //         closeModal={() => {
-  //           setModalState(!modelState);
-  //           console.log(modelState);
-  //         }}
-  //       >
-  //         <h1>Add New Pot</h1>
-  //         <h2>{modelState}</h2>
-  //         <p>
-  //           Create a port to set savings targets. These can help keep you on
-  //           track as you save from special purchases
-  //         </p>
-  //       </Modal>
-  //     )}
-  //   </div>
-  // ); */
-}
-{
-  /* } */
 }
