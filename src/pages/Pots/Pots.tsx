@@ -6,7 +6,6 @@ import utils from "../../helper/utils";
 import BeigeButton from "./BeigeButton/BeigeButton";
 import AddPot from "./AddPot/AddPot";
 import usePots from "../../hooks/Pots/usePots";
-import useDeletePot from "../../hooks/Pots/useDeletePot";
 import { useState } from "react";
 import PotMenu from "./PotMenu/PotMenu";
 
@@ -24,15 +23,6 @@ export default function Pots() {
       ? `${styles.editDeleteMenu} `
       : `${styles.editDeleteMenu} + ${styles.hide}`;
   }
-
-  //TODO logic to handle delete pot
-  // const { mutate } = useDeletePot();
-
-  // const handleDeletePot = (id: string) => {
-  //   mutate(id);
-  // };
-  // handler to delete the pot
-  // handleDeletePot(pot.id);
 
   const toggleEditDelete = (pot: Pot) => {
     return selected === "" ? setSelected(pot.id) : setSelected("");
@@ -65,7 +55,7 @@ export default function Pots() {
                   onClick={() => toggleEditDelete(pot)}
                 ></PotOptionsButton>
                 <div className={show(pot)}>
-                  <PotMenu />
+                  <PotMenu id={pot.id} />
                 </div>
               </div>
             </div>

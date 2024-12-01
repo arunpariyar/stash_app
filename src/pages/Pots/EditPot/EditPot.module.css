@@ -1,0 +1,8 @@
+.editBtn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: var(--primary-grey-900);
+  font-size: var(--text-size-preset-4);
+}

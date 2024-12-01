@@ -1,0 +1,8 @@
+.deleteBtn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: var(--secondary-red);
+  font-size: var(--text-size-preset-4);
+}

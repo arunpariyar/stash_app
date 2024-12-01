@@ -1,23 +1,16 @@
+import EditPot from "../EditPot/EditPot";
+import DeletePot from "../DeletePot/DeletePot";
 import styles from "./PotMenu.module.css";
-export default function PotMenu() {
+
+export default function PotMenu({ id }: { id: string }) {
   return (
     <>
       <div>
-        <button
-          onClick={() => console.log("Edit Button Clicked")}
-          className={styles.editBtn}
-        >
-          Edit Pot
-        </button>
+        <EditPot />
       </div>
       <hr className={styles.divider} />
       <div>
-        <button
-          onClick={() => console.log("Delete Button Clicked ")}
-          className={styles.deleteBtn}
-        >
-          Delete Pot
-        </button>
+        <DeletePot id={id} />
       </div>
     </>
   );
