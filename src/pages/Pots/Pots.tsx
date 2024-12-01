@@ -8,6 +8,7 @@ import AddPot from "./AddPot/AddPot";
 import usePots from "../../hooks/Pots/usePots";
 import useDeletePot from "../../hooks/Pots/useDeletePot";
 import { useState } from "react";
+import PotMenu from "./PotMenu/PotMenu";
 
 function calcPercentage(total: number, target: number) {
   const percentage = (total / target) * 100;
@@ -16,13 +17,12 @@ function calcPercentage(total: number, target: number) {
 
 export default function Pots() {
   const { isPending: potsPending, data: pots } = usePots();
+  const [selected, setSelected] = useState("");
 
-  const [editDeleteState, setEditDeletState] = useState(true);
-
-  function show(state: boolean) {
-    return state
-      ? "styles.potOptionsContainer, styles.hide"
-      : "styles.potOptionsContainer";
+  function show(pot: Pot) {
+    return pot.id === selected
+      ? `${styles.editDeleteMenu} `
+      : `${styles.editDeleteMenu} + ${styles.hide}`;
   }
 
   //TODO logic to handle delete pot
@@ -34,8 +34,8 @@ export default function Pots() {
   // handler to delete the pot
   // handleDeletePot(pot.id);
 
-  const toggleEditDelete = () => {
-    setEditDeletState((s) => !s);
+  const toggleEditDelete = (pot: Pot) => {
+    return selected === "" ? setSelected(pot.id) : setSelected("");
   };
 
   if (potsPending) return <h3>Loading...</h3>;
@@ -61,15 +61,11 @@ export default function Pots() {
                 </div>
               </div>
               <div className={styles.potOptionsContainer}>
-                <PotOptionsButton onClick={toggleEditDelete}></PotOptionsButton>
-                <div className={styles.editDeleteMenu}>
-                  <div>
-                    <button className={styles.editDeleteBtn}>Edit Pot</button>
-                  </div>
-                  <hr className={styles.divider} />
-                  <div>
-                    <button className={styles.editDeleteBtn}>Delete Pot</button>
-                  </div>
+                <PotOptionsButton
+                  onClick={() => toggleEditDelete(pot)}
+                ></PotOptionsButton>
+                <div className={show(pot)}>
+                  <PotMenu />
                 </div>
               </div>
             </div>

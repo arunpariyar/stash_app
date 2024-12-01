@@ -120,13 +120,14 @@
   }
 
   .hide {
-    display: none;
+    transition: visibility 2s, opacity 2s;
     visibility: hidden;
+    opacity: 0;
   }
   .editDeleteMenu {
     position: absolute;
     right: 0px;
-    top: 34px;
+    top: 30px;
     width: 100px;
     background-color: var(--white);
     padding: var(--spacing-200);
@@ -138,17 +139,7 @@
     justify-content: center;
     gap: var(--spacing-100);
     border: none;
-  }
-  .editDeleteBtn {
-    cursor: pointer;
-    border: none;
-    background: none;
-    font-family: inherit;
-    color: var(--primary-grey-900);
-    font-size: var(--text-size-preset-4);
-  }
-  .divider {
-    border: 0.5px solid var(--primary-grey-100);
+    transition: 500ms;
   }
 }
 
