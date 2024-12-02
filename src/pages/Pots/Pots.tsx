@@ -55,7 +55,7 @@ export default function Pots() {
                   onClick={() => toggleEditDelete(pot)}
                 ></PotOptionsButton>
                 <div className={show(pot)}>
-                  <PotMenu id={pot.id} />
+                  <PotMenu pot={pot} />
                 </div>
               </div>
             </div>

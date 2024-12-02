@@ -9,7 +9,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(1px);
 }
-
+/* TODO must add the responsiveness here using the width making it bigger for small screen sizes */
 .styledModal {
   position: fixed;
   top: 50%;
@@ -31,4 +31,10 @@
   border: none;
   cursor: pointer;
   background-color: var(--white);
+}
+
+.clonedContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300);
 }

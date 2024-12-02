@@ -1,0 +1,11 @@
+.goBackBtn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: var(--primary-grey-500);
+  cursor: pointer;
+}
+
+.goBackBtn:hover {
+  color: black;
+}

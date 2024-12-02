@@ -66,7 +66,9 @@ function Window({ children, name }: WindowProps): ReactElement | null {
         <button onClick={close} className={styles.closeMenuBtn}>
           <img src={closeMenu} alt="" />
         </button>
-        {cloneElement(children, { onCloseModal: close })}
+        <div className={styles.clonedContainer}>
+          {cloneElement(children, { onCloseModal: close })}
+        </div>
       </ModalWrapper>
     </Overlay>,
     document.body

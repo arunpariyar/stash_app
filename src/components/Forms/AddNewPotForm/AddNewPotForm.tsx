@@ -97,7 +97,9 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
           </div>
         </div>
         <div className={styles.inputContainer}>
-          <label htmlFor="theme">Pot Name</label>
+          <label className={styles.inputLabel} htmlFor="theme">
+            Theme
+          </label>
 
           <select id="theme" name="theme">
             {utils.colors
