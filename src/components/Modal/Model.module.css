@@ -38,3 +38,38 @@
   flex-direction: column;
   gap: var(--spacing-300);
 }
+
+@media (min-width: 320px) {
+  /* Styles for larger phones and small tablets */
+  .styledModal {
+    width: 80%;
+  }
+}
+
+@media (min-width: 576px) {
+  /* Styles for larger phones and small tablets */
+  .styledModal {
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Styles for tablets and small laptops */
+  .styledModal {
+    width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Styles for desktops */
+  .styledModal {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Styles for large desktop screens */
+  .styledModal {
+    width: 30%;
+  }
+}

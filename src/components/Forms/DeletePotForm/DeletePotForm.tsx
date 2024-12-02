@@ -1,4 +1,3 @@
-import styles from "./DeletePotForm.module.css";
 import useDeletePot from "../../../hooks/Pots/useDeletePot";
 import FormTitle from "../FormTitle/FormTitle";
 import FormSummary from "../FormSummary/FormSummary";
