@@ -15,11 +15,12 @@
   top: 50%;
   left: 50%;
   width: 35%;
+  max-width: 700px;
   transform: translate(-50%, -50%);
   background-color: var(--white);
   border-radius: 10px;
   padding: var(--spacing-400);
-  transition: all 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
 }
 
 .closeMenuBtn {
@@ -70,6 +71,6 @@
 @media (min-width: 1200px) {
   /* Styles for large desktop screens */
   .styledModal {
-    width: 30%;
+    width: 35%;
   }
 }

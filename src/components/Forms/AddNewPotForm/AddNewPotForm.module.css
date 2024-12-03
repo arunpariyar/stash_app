@@ -26,8 +26,7 @@
 }
 
 .input {
-  outline: none;
-  padding: var(--spacing-200);
+  padding: var(--spacing-150);
   border-radius: 10px;
   border: 1px solid var(--primary-grey-500);
   font-size: var(--text-size-preset-4);
@@ -37,7 +36,7 @@
 .signedInputRow {
   display: flex;
   align-items: center;
-  padding: var(--spacing-200);
+  padding: var(--spacing-150);
   border-radius: 10px;
   border: 1px solid var(--primary-grey-500);
   gap: var(--spacing-100);
@@ -67,4 +66,12 @@
   height: 16px;
   width: 16px;
   border-radius: 50%;
+}
+
+.styleSelect {
+  outline: none;
+  border-radius: 10px;
+  padding: var(--spacing-150);
+  border: 1px solid var(--primary-grey-500);
+  color: var(--primary-grey-500);
 }

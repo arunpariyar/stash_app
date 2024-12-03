@@ -101,7 +101,7 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
             Theme
           </label>
 
-          <select id="theme" name="theme">
+          <select className={styles.styleSelect} id="theme" name="theme">
             {utils.colors
               .filter((color) => color.used === false)
               .map((color) => (
