@@ -7,7 +7,7 @@ export default function PotMenu({ pot }: { pot: Pot }) {
   return (
     <>
       <div>
-        <EditPot />
+        <EditPot pot={pot} />
       </div>
       <hr className={styles.divider} />
       <div>

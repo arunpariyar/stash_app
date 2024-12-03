@@ -1,8 +1,10 @@
 import styles from "./EditPot.module.css";
 import Modal from "../../../components/Modal/Modal";
+import EditPotForm from "../../../components/Forms/EditPotForm/EditPotFrom";
+import { Pot } from "../../../models/pot";
 // import AddNewPotForm from "../../../components/Forms/AddNewPotForm/AddNewPotForm";
 
-export default function EditPot() {
+export default function EditPot({ pot }: { pot: Pot }) {
   return (
     <Modal>
       <Modal.Open opens="edit-pot-form">
@@ -11,7 +13,7 @@ export default function EditPot() {
       <Modal.Window name="edit-pot-form">
         {/* {the empty function is being passed just as place holder the actual onCloseModal is passed while cloning element} */}
         {/* <AddNewPotForm onCloseModal={() => {}}></AddNewPotForm> */}
-        <h2>Edit Pot form comes here</h2>
+        <EditPotForm pot={pot} onCloseModal={() => {}} />
       </Modal.Window>
     </Modal>
   );

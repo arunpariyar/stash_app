@@ -1,13 +1,14 @@
-import styles from "./AddNewPotForm.module.css";
+import styles from "../AddNewPotForm/AddNewPotForm.module.css";
 import utils from "../../../helper/utils";
-
+import { GetColorName } from "hex-color-to-color-name";
 import { FormEvent } from "react";
 import toast from "react-hot-toast";
 import FormTitle from "../FormTitle/FormTitle";
 import FormSummary from "../FormSummary/FormSummary";
 import { z } from "zod";
-import useNewPot from "../../../hooks/Pots/useNewPot";
 import FormActionBtn from "../../Buttons/FormActionBtn/FormActionBtn";
+import { Pot } from "../../../models/pot";
+import useUpdatePot from "../../../hooks/Pots/useUpdatePot";
 
 const addPotSchema = z.object({
   name: z.string(),
@@ -16,6 +17,7 @@ const addPotSchema = z.object({
 });
 
 interface AddNewPotFormProps {
+  pot: Pot;
   onCloseModal: () => void;
 }
 
@@ -39,8 +41,8 @@ interface AddNewPotFormProps {
 //   return redirect(`/dashboard/pots`);
 // }
 
-export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
-  const { mutate, isPending } = useNewPot({ onCloseModal });
+export default function EditPotForm({ pot, onCloseModal }: AddNewPotFormProps) {
+  const { mutate, isPending } = useUpdatePot({ onCloseModal });
 
   const summary =
     "Create a pot to set savings targets. These can help keep you on track as you save from special purchases";
@@ -50,17 +52,17 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
     const formData = new FormData(e.target as HTMLFormElement);
     const formValues = Object.fromEntries(formData);
     const result = addPotSchema.safeParse(formValues);
-
+    //FIX must change things here to only allow for name target and theme to change and not the target amount
     if (result.success) {
       if (!result.data.name || !result.data.target || !result.data.theme) {
         console.log("got here");
         toast.error("Please enter details correctly");
       } else {
+        console.log("Got here");
         mutate({
           name: result.data.name,
           target: result.data.target,
           theme: result.data.theme,
-          total: 0,
         });
       }
     }
@@ -69,7 +71,7 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
   return (
     <div>
       <form className={styles.formInfo} onSubmit={(e) => handleSubmit(e)}>
-        <FormTitle> Add New Pot</FormTitle>
+        <FormTitle>Edit Pot</FormTitle>
         <FormSummary summary={summary}></FormSummary>
         <div className={styles.inputContainer}>
           <label className={styles.inputLabel} htmlFor="name">
@@ -80,6 +82,7 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
             className={styles.input}
             type="text"
             name="name"
+            defaultValue={pot.name}
           />
           <div className={styles.remaining}>30 characters left</div>
         </div>
@@ -94,6 +97,7 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
               placeholder="e.g. 2000"
               type="number"
               name="target"
+              defaultValue={pot.target}
             />
           </div>
         </div>
@@ -106,13 +110,16 @@ export default function AddNewPotForm({ onCloseModal }: AddNewPotFormProps) {
             {utils.colors
               .filter((color) => color.used === false)
               .map((color) => (
-                <option key={color.value} value={color.value}>
-                  <div> {color.name}</div>
+                <option
+                  key={color.value}
+                  defaultValue={GetColorName(pot.theme)}
+                >
+                  <div> {GetColorName(color.value)}</div>
                 </option>
               ))}
           </select>
         </div>
-        <FormActionBtn label="Add Pot" isPending={isPending}></FormActionBtn>
+        <FormActionBtn label="Edit Pot" isPending={isPending}></FormActionBtn>
       </form>
     </div>
   );
