@@ -1,0 +1,77 @@
+.formInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300);
+}
+.title {
+  font-size: var(--text-size-preset-1);
+  font-weight: bolder;
+}
+
+.summary {
+  font-size: var(--text-size-preset-4);
+  color: var(--primary-grey-500);
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  font-size: var(--text-size-preset-5);
+  font-weight: bold;
+  color: var(--primary-grey-500);
+  margin-bottom: var(--spacing-100);
+}
+
+.input {
+  padding: var(--spacing-150);
+  border-radius: 10px;
+  border: 1px solid var(--primary-grey-500);
+  font-size: var(--text-size-preset-4);
+  color: var(--primary-grey-500);
+}
+
+.signedInputRow {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-150);
+  border-radius: 10px;
+  border: 1px solid var(--primary-grey-500);
+  gap: var(--spacing-100);
+}
+
+.signedInput {
+  border: none;
+  width: 100%;
+  font-size: var(--text-size-preset-4);
+  color: var(--primary-grey-500);
+  outline: none;
+}
+
+.euroSign {
+  font-size: var(--text-size-preset-4);
+  color: var(--primary-grey-500);
+}
+
+.remaining {
+  margin-top: var(--spacing-50);
+  text-align: right;
+  font-size: var(--text-size-preset-5);
+  color: var(--primary-grey-500);
+}
+
+.coloredDiv {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+}
+
+.styleSelect {
+  outline: none;
+  border-radius: 10px;
+  padding: var(--spacing-150);
+  border: 1px solid var(--primary-grey-500);
+  color: var(--primary-grey-500);
+}

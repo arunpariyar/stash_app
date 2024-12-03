@@ -1,0 +1,16 @@
+.blackBtn {
+  background-color: var(--primary-grey-900);
+  color: var(--white);
+  font-size: var(--text-size-preset-4);
+  font-weight: bold;
+  border: none;
+  padding: var(--spacing-200);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.blackBtn:hover {
+  background-color: var(--primary-grey-500);
+  transition: background-color 0.5s;
+}
