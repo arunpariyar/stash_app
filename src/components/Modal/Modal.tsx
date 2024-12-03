@@ -66,14 +66,9 @@ function Window({ children, name }: WindowProps): ReactElement | null {
         <button onClick={close} className={styles.closeMenuBtn}>
           <img src={closeMenu} alt="" />
         </button>
-        <div>
-          <h1>Add New Pot</h1>
-          <p>
-            Create a port to set savings targets. These can help keep you on
-            track as you save from special purchases
-          </p>
+        <div className={styles.clonedContainer}>
+          {cloneElement(children, { onCloseModal: close })}
         </div>
-        {cloneElement(children, { onCloseModal: close })}
       </ModalWrapper>
     </Overlay>,
     document.body

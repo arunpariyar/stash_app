@@ -1,0 +1,16 @@
+.warningBtn {
+  background-color: var(--secondary-red);
+  color: var(--white);
+  font-size: var(--text-size-preset-4);
+  font-weight: bold;
+  border: none;
+  padding: var(--spacing-200);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.warningBtn:hover {
+  opacity: 0.8;
+  transition: all 0.5s;
+}
