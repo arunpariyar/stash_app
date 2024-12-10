@@ -58,15 +58,13 @@ export async function createPot(pot: Partial<Pot>) {
 
 export async function updatePot(pot: Partial<Pot>) {
   try {
+    const { id, name, target, theme } = pot;
+    const updates = { id, name, target, theme };
+    console.log(updates);
     const response = await fetch(`${baseUrl}/api/v2/pots/${pot.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" }, //very important to have the headers here
-      body: JSON.stringify({
-        name: pot.name,
-        target: pot.target,
-        total: pot.total,
-        theme: pot.theme,
-      }),
+      body: JSON.stringify(updates),
     });
 
     if (!response.ok) {

@@ -55,11 +55,10 @@ export default function EditPotForm({ pot, onCloseModal }: AddNewPotFormProps) {
     //FIX must change things here to only allow for name target and theme to change and not the target amount
     if (result.success) {
       if (!result.data.name || !result.data.target || !result.data.theme) {
-        console.log("got here");
         toast.error("Please enter details correctly");
       } else {
-        console.log("Got here");
         mutate({
+          id: pot.id,
           name: result.data.name,
           target: result.data.target,
           theme: result.data.theme,
@@ -114,7 +113,7 @@ export default function EditPotForm({ pot, onCloseModal }: AddNewPotFormProps) {
                   key={color.value}
                   defaultValue={GetColorName(pot.theme)}
                 >
-                  <div> {GetColorName(color.value)}</div>
+                  {GetColorName(color.value)}
                 </option>
               ))}
           </select>
