@@ -8,6 +8,7 @@ import AddPot from "./AddPot/AddPot";
 import usePots from "../../hooks/Pots/usePots";
 import { useState } from "react";
 import PotMenu from "./PotMenu/PotMenu";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 function calcPercentage(total: number, target: number) {
   const percentage = (total / target) * 100;
@@ -17,6 +18,13 @@ function calcPercentage(total: number, target: number) {
 export default function Pots() {
   const { isPending: potsPending, data: pots } = usePots();
   const [selected, setSelected] = useState("");
+
+  // This is to hide the popup menu
+  function hidePopMenu() {
+    setSelected("");
+  }
+  //Ref
+  const ref = useOutsideClick(hidePopMenu);
 
   function show(pot: Pot) {
     return pot.id === selected
@@ -54,7 +62,7 @@ export default function Pots() {
                 <PotOptionsButton
                   onClick={() => toggleEditDelete(pot)}
                 ></PotOptionsButton>
-                <div className={show(pot)}>
+                <div ref={ref} className={show(pot)}>
                   <PotMenu pot={pot} />
                 </div>
               </div>
