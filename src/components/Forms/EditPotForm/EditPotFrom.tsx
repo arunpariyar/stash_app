@@ -63,6 +63,8 @@ export default function EditPotForm({ pot, onCloseModal }: AddNewPotFormProps) {
           target: result.data.target,
           theme: result.data.theme,
         });
+
+        (e.target as HTMLFormElement).reset();
       }
     }
   }

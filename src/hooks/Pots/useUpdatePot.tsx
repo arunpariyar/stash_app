@@ -12,8 +12,8 @@ export default function useUpdatePot({
     mutationFn: updatePot,
     onSuccess: () => {
       toast.success("Pot edited");
-      queryClient.invalidateQueries({ queryKey: ["pots"] });
       onCloseModal();
+      queryClient.invalidateQueries({ queryKey: ["pots"] });
     },
     onError: (err: Error) => toast.error(err.message),
   });
