@@ -2,8 +2,6 @@ import EditPot from "../EditPot/EditPot";
 import DeletePot from "../DeletePot/DeletePot";
 import styles from "./PotMenu.module.css";
 import { Pot } from "../../../models/pot";
-import { useOutsideClick } from "../../../hooks/useOutsideClick";
-import { useState } from "react";
 
 // import Modal from "../../../components/Modal/Modal";
 // import PotOptionsButton from "../PotOptionsButton/PotOptionsButton";
