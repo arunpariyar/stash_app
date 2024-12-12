@@ -1,6 +1,5 @@
 import styles from "../AddNewPotForm/AddNewPotForm.module.css";
 import utils from "../../../helper/utils";
-import { GetColorName } from "hex-color-to-color-name";
 import { FormEvent } from "react";
 import toast from "react-hot-toast";
 import FormTitle from "../FormTitle/FormTitle";
@@ -111,11 +110,8 @@ export default function EditPotForm({ pot, onCloseModal }: AddNewPotFormProps) {
             {utils.colors
               .filter((color) => color.used === false)
               .map((color) => (
-                <option
-                  key={color.value}
-                  defaultValue={GetColorName(pot.theme)}
-                >
-                  {GetColorName(color.value)}
+                <option key={color.value} defaultValue={color.name}>
+                  {color.name}
                 </option>
               ))}
           </select>
