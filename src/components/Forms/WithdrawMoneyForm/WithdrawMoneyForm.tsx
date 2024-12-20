@@ -50,7 +50,7 @@ export default function WithdrawMoneyForm({
   return (
     <div>
       <form className={styles.formInfo} onSubmit={(e) => handleSubmit(e)}>
-        <FormTitle> Add to '{pot.name}'</FormTitle>
+        <FormTitle> Withdraw from '{pot.name}'</FormTitle>
         <FormSummary summary={summary}></FormSummary>
 
         <div className={styles.newAmountContainer}>
