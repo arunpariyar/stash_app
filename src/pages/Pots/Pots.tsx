@@ -9,11 +9,7 @@ import usePots from "../../hooks/Pots/usePots";
 import { useState } from "react";
 import PotMenu from "./PotMenu/PotMenu";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
-
-function calcPercentage(total: number, target: number) {
-  const percentage = (total / target) * 100;
-  return percentage.toFixed(1);
-}
+import AddMoneyToPot from "./AddMoneyToPot/AddMoneyToPot";
 
 export default function Pots() {
   const { isPending: potsPending, data: pots } = usePots();
@@ -85,29 +81,28 @@ export default function Pots() {
                     style={{ accentColor: pot.theme }}
                     data-accent={pot.theme}
                     max={100}
-                    value={`${calcPercentage(pot.total, pot.target)}`}
+                    value={`${utils.calcPercentage(pot.total, pot.target)}`}
                   ></progress>
-                </div>
-
-                <div className={styles.potTargetDetails}>
-                  <p className={styles.targetPercentage}>{`${calcPercentage(
-                    pot.total,
-                    pot.target
-                  )}%`}</p>
-                  <p
-                    className={styles.targetTotal}
-                  >{`Target of ${utils.displayAsEuro(pot.target)}`}</p>
+                  <div className={styles.potTargetDetails}>
+                    <p
+                      className={styles.targetPercentage}
+                    >{`${utils.calcPercentage(pot.total, pot.target)}%`}</p>
+                    <p
+                      className={styles.targetTotal}
+                    >{`Target of ${utils.displayAsEuro(pot.target)}`}</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className={styles.callToActionWrapper}>
-              <BeigeButton
+              {/* <BeigeButton
                 label="+ Add Money"
                 onClick={() => {
                   alert("coming soon");
                 }}
-              ></BeigeButton>
+              ></BeigeButton> */}
+              <AddMoneyToPot pot={pot}></AddMoneyToPot>
               <BeigeButton
                 label="Withdraw"
                 onClick={() => {
