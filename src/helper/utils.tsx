@@ -14,6 +14,11 @@ function formatDate(date: Date) {
   return new Intl.DateTimeFormat("en-GB", options).format(date);
 }
 
+function calcPercentage(total: number, target: number) {
+  const percentage = (total / target) * 100;
+  return percentage.toFixed(1);
+}
+
 const colors = [
   { name: "green", value: "#50C878", used: true },
   { name: "blue", value: "#4682B4", used: false },
@@ -32,6 +37,6 @@ const colors = [
   { name: "navy", value: "#000080", used: false },
 ];
 
-const utils = { displayAsEuro, formatDate, colors };
+const utils = { displayAsEuro, formatDate, colors, calcPercentage };
 
 export default utils;
