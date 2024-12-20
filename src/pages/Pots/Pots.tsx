@@ -3,13 +3,13 @@ import { Pot } from "../../models/pot";
 import PageHeader from "../sharedComponents/PageHeader/PageHeader";
 import PotOptionsButton from "./PotOptionsButton/PotOptionsButton";
 import utils from "../../helper/utils";
-import BeigeButton from "./BeigeButton/BeigeButton";
 import AddPot from "./AddPot/AddPot";
 import usePots from "../../hooks/Pots/usePots";
 import { useState } from "react";
 import PotMenu from "./PotMenu/PotMenu";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import AddMoneyToPot from "./AddMoneyToPot/AddMoneyToPot";
+import WithdrawPot from "./WithdrawPot/WithdrawPot";
 
 export default function Pots() {
   const { isPending: potsPending, data: pots } = usePots();
@@ -103,12 +103,7 @@ export default function Pots() {
                 }}
               ></BeigeButton> */}
               <AddMoneyToPot pot={pot}></AddMoneyToPot>
-              <BeigeButton
-                label="Withdraw"
-                onClick={() => {
-                  alert("coming soon");
-                }}
-              ></BeigeButton>
+              <WithdrawPot pot={pot}></WithdrawPot>
             </div>
           </div>
         ))}

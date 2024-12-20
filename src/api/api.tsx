@@ -94,3 +94,48 @@ export async function deletePot(id: string) {
     throw error;
   }
 }
+
+export async function addMoneyToPotApi(updates: {
+  id: string;
+  amount: number;
+}) {
+  try {
+    const { id, amount } = updates;
+    const response = await fetch(`${baseUrl}/api/v2/pots/${id}/add`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" }, //very important to have the headers here
+      body: JSON.stringify({ amount }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+
+    const updatedPot = await response.json();
+
+    return updatedPot.body;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function withdrawMoney(updates: { id: string; amount: number }) {
+  try {
+    const { id, amount } = updates;
+    const response = await fetch(`${baseUrl}/api/v2/pots/${id}/withdraw`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" }, //very important to have the headers here
+      body: JSON.stringify({ amount }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+
+    const updatedPot = await response.json();
+
+    return updatedPot.body;
+  } catch (error) {
+    throw error;
+  }
+}

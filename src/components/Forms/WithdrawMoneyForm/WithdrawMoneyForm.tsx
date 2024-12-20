@@ -1,31 +1,32 @@
-import styles from "./AddMoneyToPotForm.module.css";
+import styles from "./WithdrawMoney.module.css";
 import utils from "../../../helper/utils";
 import { ChangeEvent, FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 import FormTitle from "../FormTitle/FormTitle";
 import FormSummary from "../FormSummary/FormSummary";
 import { z } from "zod";
+
 import FormActionBtn from "../../Buttons/FormActionBtn/FormActionBtn";
-import useAddMoneyToPot from "../../../hooks/Pots/useAddMoneyToPot";
 import { Pot } from "../../../models/pot";
+import useWithdrawPot from "../../../hooks/Pots/useWithdrawMoney";
 
 const addFormSchema = z.object({
   amount: z.number({ coerce: true }),
 });
 
-interface AddMoneyToPotFormProps {
+interface WithdrawMoneyFormProps {
   pot: Pot;
   onCloseModal: () => void;
 }
 
-export default function AddMoneyToPotForm({
+export default function WithdrawMoneyForm({
   pot,
   onCloseModal,
-}: AddMoneyToPotFormProps) {
-  const { mutate, isPending } = useAddMoneyToPot({ onCloseModal });
+}: WithdrawMoneyFormProps) {
+  const { mutate, isPending } = useWithdrawPot({ onCloseModal });
 
   const summary =
-    "Please specify the amount of money you wish to add to your pot. The bar will allow you to see if you are closer to your target ✨";
+    "Please specify the amount of money you wish to withdraw from your pot. The bar will allow you to see the withdrawal ✨";
 
   const [amountToAdd, setAmountToAdd] = useState(5);
 
@@ -55,7 +56,7 @@ export default function AddMoneyToPotForm({
         <div className={styles.newAmountContainer}>
           <p className={styles.newAmount}>New Amount</p>
           <p className={styles.amount}>
-            {utils.displayAsEuro(Number(pot.total) + amountToAdd)}
+            {utils.displayAsEuro(Number(pot.total) - amountToAdd)}
           </p>
         </div>
         <div className={styles.progressDetails}>
@@ -66,7 +67,7 @@ export default function AddMoneyToPotForm({
               data-accent={pot.theme}
               max={100}
               value={`${utils.calcPercentage(
-                Number(pot.total) + Number(amountToAdd),
+                Number(pot.total) - Number(amountToAdd),
                 pot.target
               )}`}
             ></progress>
@@ -101,7 +102,7 @@ export default function AddMoneyToPotForm({
         </div>
 
         <FormActionBtn
-          label="Confirm Addition"
+          label="Confirm Withdrawal"
           isPending={isPending}
         ></FormActionBtn>
       </form>
