@@ -4,14 +4,14 @@
 
 Stash is a comprehensive application (in the making) designed to help users manage their finances efficiently.
 
-It is created as a portfolio application to showcase my ability as a full stack developer to potential employers.
+It is created as a portfolio application to showcase my full stack development skill to potential employers.
 
 ---
 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Tech Stack](#techstack)
+2. [Tech Stack](#tech-stack)
 3. [Features](#features)
 4. [Installation](#installation)
 5. [Usage](#usage)
@@ -30,7 +30,10 @@ This is a web-based application that helps users to centrally manage their finan
 
 ## Tech Stack
 
-This is a web-based application that helps users to centrally manage their finances efficiently using modern React and Node.js technologies.
+- **Front-end**: TypeScript, React, React Query, React Router, React ChartJS, React Hot Toast, Zod, Vanilla CSS, CSS Modules
+- **Back-end**: TypeScript, Node.js, Express.js, Prisma
+- **Database**: Postgres
+- **Other Tools**: AWS Amplify, CI/CD, Render
 
 ---
 
