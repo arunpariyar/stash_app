@@ -1,4 +1,4 @@
-![stash](./public/images/demo/stash.png)
+![stash](./public/images/demo/gif-stash.gif)
 
 # Stash
 
@@ -81,7 +81,7 @@ Example:
 
 ## Screenshots
 
-![Screenshot](./public/images/demo/gif-stash.gif)
+![Screenshot](./public/images/demo/stash.png)
 
 ---
 
