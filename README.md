@@ -1,3 +1,5 @@
+![stash](./public/images/demo/stash.png)
+
 # Stash
 
 Stash is a comprehensive application (in the making) designed to help users manage their finances efficiently.
@@ -38,7 +40,7 @@ This is a web-based application that helps users to centrally manage their finan
   Perform full CRUD operations (Create, Read, Update, Delete) for budgets and saving pots.
 - View the latest three transactions for each budget category.
 - Track progress towards saving goals for each pot.
-  - Add and withdraw money from saving pots effortlessly.
+- Add and withdraw money from saving pots effortlessly.
 - Enjoy an optimal layout for the interface on any device,
 
 ---
@@ -85,10 +87,6 @@ Example:
 
 ## Contributing
 
-Explain how others can contribute to the project.
-
-Example:
-
 1. Fork the repository.
 2. Create a new branch:
    ```bash
@@ -114,10 +112,7 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-Provide contact information or links for further questions.
-
-Example:
 For any inquiries, please reach out at:
 
-- **LinkedIn**: [Your Profile](https://linkedin.com/in/arunpariyar)
-- **GitHub**: [Your Username](https://github.com/arunpariyar)
+- **LinkedIn**: [in/arunpariyar](https://linkedin.com/in/arunpariyar)
+- **GitHub**: [arunpariyar](https://github.com/arunpariyar)
