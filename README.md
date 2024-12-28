@@ -2,37 +2,44 @@
 
 Stash is a comprehensive application (in the making) designed to help users manage their finances efficiently.
 
+It is created as a portfolio application to showcase my ability as a full stack developer to potential employers.
+
 ---
 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Screenshots](#screenshots)
-6. [Contributing](#contributing)
-7. [License](#license)
-8. [Contact](#contact)
+2. [Tech Stack](#techstack)
+3. [Features](#features)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Screenshots](#screenshots)
+7. [Contributing](#contributing)
+8. [License](#license)
+9. [Contact](#contact)
 
 ---
 
 ## Overview
 
-Explain what the project does, why it exists, and what problem it solves. Include a summary of the technology stack and any unique aspects.
+This is a web-based application that helps users to centrally manage their finances efficiently using modern React and Node.js technologies.
 
-Example:
-"This is a web-based application that helps users manage their tasks efficiently using modern React and Node.js technologies."
+---
+
+## Tech Stack
+
+This is a web-based application that helps users to centrally manage their finances efficiently using modern React and Node.js technologies.
 
 ---
 
 ## Features
 
-- List the key features of the project.
-- Example:
-  - Responsive design
-  - User authentication
-  - Dark mode support
+- View all personal finance data at-a-glance on the Overview page.
+  Perform full CRUD operations (Create, Read, Update, Delete) for budgets and saving pots.
+- View the latest three transactions for each budget category.
+- Track progress towards saving goals for each pot.
+  - Add and withdraw money from saving pots effortlessly.
+- Enjoy an optimal layout for the interface on any device,
 
 ---
 
@@ -72,10 +79,7 @@ Example:
 
 ## Screenshots
 
-Include screenshots or GIFs to showcase the UI and features of your project.
-
-Example:
-![Screenshot](path/to/screenshot.png)
+![Screenshot](./public/images/demo/gif-stash.gif)
 
 ---
 
@@ -104,10 +108,7 @@ Example:
 
 ## License
 
-State the license under which the project is distributed.
-
-Example:
-"This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details."
+This project is licensed under the MIT License.
 
 ---
 
@@ -118,7 +119,5 @@ Provide contact information or links for further questions.
 Example:
 For any inquiries, please reach out at:
 
-- **Email**: yourname@example.com
-- **LinkedIn**: [Your Profile](https://linkedin.com/in/yourprofile)
-- **GitHub**: [Your Username](https://github.com/yourusername)
-  å
+- **LinkedIn**: [Your Profile](https://linkedin.com/in/arunpariyar)
+- **GitHub**: [Your Username](https://github.com/arunpariyar)
