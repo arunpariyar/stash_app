@@ -75,10 +75,13 @@ Example:
 
 ## Usage
 
-Describe how to use the project. Include examples, code snippets, or commands to demonstrate functionality.
+- For ease of overviewing the project the login has been disabled and clicking on login will take you inside the application.
 
-Example:
-"To log in, use the default credentials provided in the seed data, or register for a new account."
+- The overview section shows us the bird eye view of the account.
+
+- Jump to the pot section to view the available pot. Follow the buttons to create new pot edit pot and to also withdraw and add money to the pot.
+
+- Pots can also be deleted if required.
 
 ---
 
