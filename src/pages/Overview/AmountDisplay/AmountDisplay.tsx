@@ -6,7 +6,10 @@ interface AmountDisplayProps {
   amount: number;
 }
 
-export default function AmountDisplay({ title, amount }: AmountDisplayProps) {
+export default function AmountDisplay({
+  title = "no title",
+  amount = 0,
+}: AmountDisplayProps) {
   const roundedAmount = Math.round((amount + Number.EPSILON) * 100) / 100;
 
   return (
@@ -17,8 +20,12 @@ export default function AmountDisplay({ title, amount }: AmountDisplayProps) {
           : "amount-container"
       }
     >
-      <p className="amount-title">{title}</p>
-      <p className="amount-number">{utils.displayAsEuro(roundedAmount)}</p>
+      <p data-testid="test-title" className="amount-title">
+        {title}
+      </p>
+      <p data-testid="test-amount" className="amount-number">
+        {utils.displayAsEuro(roundedAmount)}
+      </p>
     </div>
   );
 }
