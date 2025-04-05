@@ -9,6 +9,7 @@ import Balance from "./Balance/Balance";
 import PageHeader from "../sharedComponents/PageHeader/PageHeader";
 import useTransaction from "../../hooks/Transactions/useTransactions";
 import usePots from "../../hooks/Pots/usePots";
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 
 export default function Overview() {
   // const transactions = useAppSelector((state) => state.transactions.data);
@@ -21,19 +22,21 @@ export default function Overview() {
   if (transactionPending || potsPending) return <div>Loading...</div>;
 
   return (
-    <div className="overview-container">
-      <PageHeader title="Overview"></PageHeader>
-      <Balance></Balance>
-      <div className="contents">
-        <div className="pots-and-transaction-container">
-          <PotsDisplay pots={pots} />
-          <TransactionsOverview transactions={transactions} />
-        </div>
-        <div className="budget-and-bills-container">
-          <BudgetOverview></BudgetOverview>
-          <RecurringBills></RecurringBills>
+    <ErrorBoundary>
+      <div className="overview-container">
+        <PageHeader title="Overview"></PageHeader>
+        <Balance></Balance>
+        <div className="contents">
+          <div className="pots-and-transaction-container">
+            <PotsDisplay pots={pots} />
+            <TransactionsOverview transactions={transactions} />
+          </div>
+          <div className="budget-and-bills-container">
+            <BudgetOverview></BudgetOverview>
+            <RecurringBills></RecurringBills>
+          </div>
         </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 }

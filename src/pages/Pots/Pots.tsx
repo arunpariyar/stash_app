@@ -10,6 +10,7 @@ import PotMenu from "./PotMenu/PotMenu";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import AddMoneyToPot from "./AddMoneyToPot/AddMoneyToPot";
 import WithdrawPot from "./WithdrawPot/WithdrawPot";
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 
 export default function Pots() {
   const { isPending: potsPending, data: pots } = usePots();
@@ -39,75 +40,77 @@ export default function Pots() {
   if (potsPending) return <h3>Loading...</h3>;
 
   return (
-    <div className={styles.potsContainer}>
-      <div className={styles.potsPageHeader}>
-        <PageHeader title="Pots"></PageHeader>
-        <AddPot></AddPot>
-      </div>
+    pots && (
+      <div className={styles.potsContainer}>
+        <div className={styles.potsPageHeader}>
+          <PageHeader title="Pots"></PageHeader>
+          <AddPot></AddPot>
+        </div>
 
-      <div className={styles.potsCollection}>
-        {pots.map((pot: Pot) => (
-          <div key={pot.id} className={styles.potWrapper}>
-            <div className={styles.menuBar}>
-              <div className={styles.menuTitle}>
-                <div
-                  style={{ backgroundColor: `${pot.theme}` }}
-                  className={styles.dot}
-                ></div>
-                <div className={styles.title} key={pot.id}>
-                  {pot.name}
+        <div className={styles.potsCollection}>
+          {pots.map((pot: Pot) => (
+            <div key={pot.id} className={styles.potWrapper}>
+              <div className={styles.menuBar}>
+                <div className={styles.menuTitle}>
+                  <div
+                    style={{ backgroundColor: `${pot.theme}` }}
+                    className={styles.dot}
+                  ></div>
+                  <div className={styles.title} key={pot.id}>
+                    {pot.name}
+                  </div>
                 </div>
-              </div>
-              <div className={styles.potOptionsContainer}>
-                <PotOptionsButton
-                  onClick={() => toggleEditDelete(pot)}
-                ></PotOptionsButton>
-                <div ref={ref} className={show(pot)}>
-                  <PotMenu pot={pot} />
-                </div>
-              </div>
-            </div>
-            <div className={styles.potDetails}>
-              <div className={styles.potDetailSaved}>
-                <p className={styles.potTitle}>Total Saved</p>
-                <p className={styles.potAmount}>
-                  {utils.displayAsEuro(pot.total)}
-                </p>
-              </div>
-              <div className={styles.progressDetails}>
-                <div className={styles.progressBarWrapper}>
-                  <progress
-                    className={styles.progressBar}
-                    style={{ accentColor: pot.theme }}
-                    data-accent={pot.theme}
-                    max={100}
-                    value={`${utils.calcPercentage(pot.total, pot.target)}`}
-                  ></progress>
-                  <div className={styles.potTargetDetails}>
-                    <p
-                      className={styles.targetPercentage}
-                    >{`${utils.calcPercentage(pot.total, pot.target)}%`}</p>
-                    <p
-                      className={styles.targetTotal}
-                    >{`Target of ${utils.displayAsEuro(pot.target)}`}</p>
+                <div className={styles.potOptionsContainer}>
+                  <PotOptionsButton
+                    onClick={() => toggleEditDelete(pot)}
+                  ></PotOptionsButton>
+                  <div ref={ref} className={show(pot)}>
+                    <PotMenu pot={pot} />
                   </div>
                 </div>
               </div>
-            </div>
+              <div className={styles.potDetails}>
+                <div className={styles.potDetailSaved}>
+                  <p className={styles.potTitle}>Total Saved</p>
+                  <p className={styles.potAmount}>
+                    {utils.displayAsEuro(pot.total)}
+                  </p>
+                </div>
+                <div className={styles.progressDetails}>
+                  <div className={styles.progressBarWrapper}>
+                    <progress
+                      className={styles.progressBar}
+                      style={{ accentColor: pot.theme }}
+                      data-accent={pot.theme}
+                      max={100}
+                      value={`${utils.calcPercentage(pot.total, pot.target)}`}
+                    ></progress>
+                    <div className={styles.potTargetDetails}>
+                      <p
+                        className={styles.targetPercentage}
+                      >{`${utils.calcPercentage(pot.total, pot.target)}%`}</p>
+                      <p
+                        className={styles.targetTotal}
+                      >{`Target of ${utils.displayAsEuro(pot.target)}`}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            <div className={styles.callToActionWrapper}>
-              {/* <BeigeButton
+              <div className={styles.callToActionWrapper}>
+                {/* <BeigeButton
                 label="+ Add Money"
                 onClick={() => {
                   alert("coming soon");
                 }}
               ></BeigeButton> */}
-              <AddMoneyToPot pot={pot}></AddMoneyToPot>
-              <WithdrawPot pot={pot}></WithdrawPot>
+                <AddMoneyToPot pot={pot}></AddMoneyToPot>
+                <WithdrawPot pot={pot}></WithdrawPot>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    )
   );
 }
